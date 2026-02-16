@@ -1,0 +1,56 @@
+/* ===== RESET ===== */
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  overflow-x: hidden;
+}
+
+/* ===== VIDEO SECTION ===== */
+.video-section {
+  position: relative;
+  height: calc(100vh - 70px); /* لو عندك navbar */
+  width: 100%;
+  overflow: hidden;
+  background: #000;
+  z-index: 1;
+}
+
+/* الفيديو نفسه */
+.video-section video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ===== SOUND BUTTON ===== */
+.sound-toggle {
+  position: absolute;
+  bottom: 32px;
+  right: 32px;
+  z-index: 20;              /* 👈 أعلى من الفيديو */
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0,0,0,0.55);
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+}
+
+.sound-toggle:hover {
+  background: rgba(255,255,255,0.9);
+  color: #000;
+  transform: scale(1.1);
+}
+
+/* ===== باقي السكاشن ===== */
+section:not(.video-section) {
+  position: relative;
+  z-index: 2;
+  background: #fff;
+}

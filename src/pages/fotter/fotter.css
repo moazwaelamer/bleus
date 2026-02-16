@@ -1,0 +1,169 @@
+.site-footer {
+  background: #000;
+  color: #fff;
+  padding: 60px 80px 30px;
+  font-family: "Inter", sans-serif;
+}
+
+/* ===== TOP ===== */
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 80px;
+  flex-wrap: wrap;
+}
+
+/* ===== LEFT ===== */
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+/* FOLLOW US */
+.follow-us p {
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+  opacity: 0.9;
+}
+
+/* SOCIAL */
+.social-icons {
+  display: flex;
+  gap: 18px;
+}
+
+.social-icons a {
+  width: 46px;
+  height: 46px;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #fff;
+  font-size: 18px;
+  text-decoration: none; /* 👈 مفيش خط */
+
+  transition: 0.25s ease;
+}
+
+.social-icons a:hover {
+  background: #fff;
+  color: #000;
+}
+
+/* PAYMENTS */
+.payments {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.payments .secure {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.2;
+  opacity: 0.9;
+}
+
+.payments img {
+  height: 28px;
+  object-fit: contain;
+  filter: brightness(1.1);
+}
+
+/* ===== RIGHT ===== */
+.footer-right {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(160px, 1fr));
+  gap: 80px;
+
+  /* 👇 الحركة المهمة */
+  margin-left: auto;
+  margin-right: 120px; /* عدل الرقم ده على مزاجك */
+}
+/* COLUMNS */
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.footer-col h4 {
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+  opacity: 0.9;
+}
+
+.footer-col a {
+  font-size: 14px;
+  color: #fff;
+  text-decoration: none;
+  opacity: 0.75;
+  transition: 0.25s ease;
+}
+
+.footer-col a:hover {
+  opacity: 1;
+}
+
+/* ===== BOTTOM ===== */
+.footer-bottom {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,.2);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+
+  font-size: 12px;
+  opacity: 0.9;
+  text-align: center;
+}
+
+/* Powered by */
+.powered-by {
+  font-size: 13px;
+  color: rgba(255,255,255,0.9);
+}
+
+.powered-by a {
+  color: #ffffff;
+  font-weight: 600;
+  text-decoration: none;
+  margin-left: 4px;
+  transition: opacity 0.25s ease;
+}
+
+.powered-by a:hover {
+  opacity: 0.85;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .site-footer {
+    padding: 50px 30px;
+  }
+
+  .footer-top {
+    flex-direction: column;
+    gap: 60px;
+  }
+
+  .footer-right {
+    gap: 50px;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-bottom {
+    flex-direction: column;
+    gap: 8px;
+  }
+}

@@ -1,0 +1,17 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  overflow-x: hidden;
+  overflow-y: auto;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* عشان أي سكشن يبقى طبيعي */
+section {
+  width: 100%;
+}

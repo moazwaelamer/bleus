@@ -1,0 +1,270 @@
+
+:root {
+  --blue-main: #2E4A7D;
+  --pink-soft: #F3D6E3;
+  --pink-hover: #EBC2D4;
+  --text-dark: #1e1e1e;
+}
+/* ================= NAVBAR ================= */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+
+  padding: 0 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: transparent;
+  z-index: 4000;
+  font-family: "Inter", sans-serif;
+  transition: background 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* SCROLLED STATE */
+.navbar.scrolled {
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 30px rgba(46, 74, 125, 0.12);
+}
+/* CART PAGE MODE */
+.navbar.cart-mode {
+  position: relative;
+  background: #f7f6f3;
+  backdrop-filter: none;
+  box-shadow: none;
+}
+
+
+/* ================= LOGO ================= */
+.logo {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.logo img {
+  width: 140px;
+  height: auto;
+  object-fit: contain;
+  cursor: pointer;
+
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.35));
+   transition: filter 40s linear;
+
+
+}
+
+.logo img:hover {
+  filter:
+    brightness(0)
+    saturate(100%)
+    invert(18%)
+    sepia(90%)
+    saturate(3500%)
+    hue-rotate(215deg)
+    brightness(85%);
+     
+    
+}
+
+
+
+/* ================= ICONS ================= */
+.nav-icons {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--blue-main);
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.icon-btn:hover {
+  transform: scale(1.08);
+  color: var(--pink-hover);
+}
+
+.icon-btn svg {
+  width: 28px;
+  height: 28px;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  fill: none;
+}
+
+/* ================= CART BADGE ================= */
+.cart-btn {
+  position: relative;
+}
+
+.cart-badge {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  min-width: 18px;
+  height: 18px;
+  background: #000;
+  color: #fff;
+  font-size: 11px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ================= ACCOUNT ================= */
+.account-wrapper {
+  position: relative;
+}
+.blue-heart {
+  font-size: 18px;   /* كبرنا القلب */
+  line-height: 1;
+}
+
+.username-text {
+  font-size: 15px;   /* الاسم طبيعي */
+}
+.user-name {
+  font-size: 14px;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+    gap: 6px;     
+  transition: background 0.25s ease;
+}
+
+.user-name:hover {
+  background: var(--pink-soft);
+}
+
+/* DROPDOWN */
+.account-dropdown {
+  position: absolute;
+  border: 1px solid var(--pink-soft);
+  top: 44px;
+  right: 0;
+  width: 200px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  z-index: 3000;
+}
+
+.dropdown-item {
+  padding: 14px 18px;
+  font-size: 14px;
+  color: #111;
+  cursor: pointer;
+  transition: background 0.25s ease, padding-left 0.25s ease;
+}
+
+.dropdown-item:hover {
+  background: #f4f4f4;
+  padding-left: 22px;
+}
+
+.logout {
+  color: #c62828;
+  font-weight: 600;
+}
+
+/* ================= MENU TOGGLE ================= */
+.menu-toggle {
+  width: 40px;
+  height: 40px;
+  position: relative;
+}
+
+.menu-toggle span {
+  position: absolute;
+  left: 8px;
+  width: 24px;
+  height: 2px;
+  background: currentColor;
+  transition: 0.5s cubic-bezier(0.83, 0, 0.17, 1);
+}
+
+.menu-toggle span:nth-child(1) { top: 12px; }
+.menu-toggle span:nth-child(2) { top: 19px; }
+.menu-toggle span:nth-child(3) { top: 26px; }
+
+.menu-toggle.open span:nth-child(1) {
+  transform: rotate(45deg);
+  top: 19px;
+}
+
+.menu-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.open span:nth-child(3) {
+  transform: rotate(-45deg);
+  top: 19px;
+}
+
+/* ================= FULL SCREEN MENU ================= */
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: #fff;
+  z-index: 3000;
+}
+
+.menu-content {
+  display: flex;
+  height: 100%;
+}
+
+/* LEFT */
+.menu-left {
+  width: 45%;
+  padding: 140px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.menu-left a {
+  font-size: 34px;
+  font-weight: 500;
+  color: #111;
+  text-decoration: none;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.menu-left a:hover {
+  transform: translateX(8px);
+  opacity: 0.7;
+}
+
+/* RIGHT */
+.menu-right {
+  width: 55%;
+  overflow: hidden;
+}
+
+.menu-right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

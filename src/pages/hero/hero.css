@@ -1,0 +1,69 @@
+/* ================= HERO ================= */
+:root {
+  --blue-main: #2E4A7D;
+  --pink-soft: #F3D6E3;
+  --pink-hover: #EBC2D4;
+  --text-dark: #1e1e1e;
+}
+.hero {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Background Image */
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Overlay */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.45) 0%,
+    rgba(0,0,0,0.25) 50%,
+    rgba(0,0,0,0.45) 100%
+  );
+}
+
+/* ================= ANIMATED SCROLL ARROW ================= */
+
+.scroll-arrow {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 28px;
+  cursor: pointer;
+  animation: bounceArrow 1.6s ease-in-out infinite;
+  transition: 0.3s ease;
+  z-index: 10;
+}
+
+.scroll-arrow:hover {
+  transform: translateX(-50%) scale(1.2);
+}
+
+/* حركة السهم */
+@keyframes bounceArrow {
+  0%   { transform: translate(-50%, 0); }
+  50%  { transform: translate(-50%, 12px); }
+  100% { transform: translate(-50%, 0); }
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+  .scroll-arrow {
+    bottom: 40px;
+    font-size: 24px;
+  }
+}

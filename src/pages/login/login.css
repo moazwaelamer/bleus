@@ -1,0 +1,226 @@
+:root {
+  --blue-main: #2E4A7D;
+  --blue-dark: #243b63;
+  --pink-soft: #F3D6E3;
+  --pink-hover: #EBC2D4;
+  --text-dark: #1e1e1e;
+  --text-muted: rgba(46, 74, 125, 0.65);
+  --line-soft: rgba(46, 74, 125, 0.2);
+}
+
+.login-overlay {
+  position: fixed;
+  inset: 0;
+   background: rgba(46, 74, 125, 0.35);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: flex-end;
+  z-index: 5000;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ================= PANEL ================= */
+.login-panel {
+  width: 500px;
+  max-width: 100%;
+  height: 100%;
+ background: #ffffff;
+  border-left: 1px solid var(--line-soft);
+  padding: 70px 55px;
+  position: relative;
+  box-shadow: -20px 0 70px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+
+  /* تحسينات */
+  border-left: 1px solid rgba(0,0,0,0.05);
+  animation: slideInPanel 0.35s ease;
+
+  overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+}
+
+.login-panel::-webkit-scrollbar {
+  display: none; /* Chrome */
+}
+
+@keyframes slideInPanel {
+  from { transform: translateX(20px); }
+  to { transform: translateX(0); }
+}
+
+/* ================= CLOSE BUTTON ================= */
+.close-btn {
+  position: absolute;
+  top: 25px;
+  right: 30px;
+   border: 1px solid var(--blue-main);
+  color: var(--blue-main);
+  border: 1px solid #333;
+  padding: 6px 14px;
+  cursor: pointer;
+  font-size: 12px;
+  letter-spacing: 1px;
+  transition: 0.25s ease;
+}
+
+.close-btn:hover {
+  background: var(--blue-main);
+  color: #fff;
+}
+
+/* ================= TITLE ================= */
+h2 {
+  font-size: 30px;
+  margin-bottom: 45px;
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--blue-main);
+}
+
+/* ================= SOCIAL BUTTONS ================= */
+.social-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 10px;
+}
+
+.social-buttons button {
+  height: 52px;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  transition: 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  letter-spacing: 0.5px;
+}
+
+.fb {
+  background: #4267B2;
+  color: white;
+}
+
+.google {
+  background: #eaeaea;
+  color: #333;
+}
+
+.apple {
+  background: #111;
+  color: white;
+}
+
+.social-buttons button:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+/* ================= OR DIVIDER ================= */
+.divider {
+  display: flex;
+  align-items: center;
+  margin: 40px 0;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line-soft);
+}
+
+.divider span {
+  margin: 0 18px;
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--text-muted);
+}
+
+/* ================= FORM ================= */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  width: 100%;
+  height: 52px;
+  padding: 14px;
+ border: 1px solid var(--line-soft);
+  margin-bottom: 22px;
+  font-size: 14px;
+  transition: 0.3s ease;
+  background: #fff;
+}
+
+input:focus {
+   border-color: var(--blue-main);
+  box-shadow: 0 6px 18px rgba(46, 74, 125, 0.15);
+  outline: none;
+
+}
+
+/* ================= MAIN BUTTON ================= */
+.continue-btn {
+  width: 100%;
+  height: 55px;
+  background: var(--blue-main);
+  color: #fff;
+  border: none;
+  letter-spacing: 2px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.continue-btn:hover {
+ background: var(--blue-dark);
+  transform: translateY(-2px);
+}
+
+.continue-btn:active {
+  transform: scale(0.98);
+}
+
+/* ================= ERROR ================= */
+.error-msg {
+  margin-top: -10px;
+  margin-bottom: 15px;
+  font-size: 13px;
+  color: #d93025;
+}
+
+/* ================= SWITCH TEXT ================= */
+.switch-text {
+  margin-top: 18px;
+  font-size: 14px;
+  cursor: pointer;
+ color: var(--text-muted);
+
+  transition: 0.2s ease;
+}
+
+.switch-text:hover {
+  color: var(--blue-main);
+  text-decoration: underline;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 600px) {
+  .login-panel {
+    width: 100%;
+    padding: 60px 30px;
+  }
+}
