@@ -1,6 +1,6 @@
-import { motion, AnimatePresence } from "framer-motion";
+import { motion} from "framer-motion";
 import { useEffect, useState } from "react";
-import Checkout from "../../pages/checkout/Checkout";
+
 import { products } from "../../pages/Product/products";
 import "./cart.css";
 import { useNavigate } from "react-router-dom";
@@ -11,7 +11,6 @@ export default function CartPanel({ onClose }) {
   const CART_KEY = user ? `cart_${user.username}` : "cart_guest";
 
   const [items, setItems] = useState([]);
-  const [openCheckout, setOpenCheckout] = useState(false);
 
   /* ===== MAY ALSO LIKE SLIDER ===== */
   const [likeIndex, setLikeIndex] = useState(0);
