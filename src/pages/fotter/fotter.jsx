@@ -11,12 +11,35 @@ export default function Footer() {
         <div className="footer-left">
           <div className="follow-us">
             <p>Follow Us</p>
-            <div className="social-icons">
-              <a href="#"><i className="fab fa-facebook-f"></i></a>
-              <a href="#"><i className="fab fa-twitter"></i></a>
-              <a href="#"><i className="fab fa-instagram"></i></a>
-              <a href="#"><i className="fab fa-youtube"></i></a>
-            </div>
+        <div className="social-icons">
+  <a
+    href="https://facebook.com"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Facebook"
+  >
+    <i className="fab fa-facebook-f"></i>
+  </a>
+
+  <a
+    href="https://instagram.com"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Instagram"
+  >
+    <i className="fab fa-instagram"></i>
+  </a>
+
+  <a
+    href="https://www.tiktok.com"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="TikTok"
+  >
+    <i className="fab fa-tiktok"></i>
+  </a>
+</div>
+
           </div>
 
           <div className="payments">

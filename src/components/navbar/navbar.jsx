@@ -211,8 +211,11 @@ export default function Navbar() {
               </div>
 
               <div className="menu-right">
-                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" />
-              </div>
+<img
+  src="https://images.unsplash.com/photo-1509042239860-f550ce710b93"
+  alt="Cup of coffee"
+/>
+               </div>
             </div>
           </motion.div>
         )}
