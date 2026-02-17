@@ -1,7 +1,5 @@
 import { motion} from "framer-motion";
 import { useEffect, useState } from "react";
-
-import { products } from "../../pages/Product/products";
 import "./cart.css";
 import { useNavigate } from "react-router-dom";
 
@@ -12,9 +10,7 @@ export default function CartPanel({ onClose }) {
 
   const [items, setItems] = useState([]);
 
-  /* ===== MAY ALSO LIKE SLIDER ===== */
-  const [likeIndex, setLikeIndex] = useState(0);
-  const VISIBLE = 2;
+
 
   /* ===== LOAD CART ===== */
   useEffect(() => {
