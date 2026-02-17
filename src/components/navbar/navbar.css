@@ -19,10 +19,15 @@
   align-items: center;
   justify-content: space-between;
 
-   background: rgba(255, 255, 255, 0.96);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.9); 
+  backdrop-filter: blur(5px);
   box-shadow: 0 8px 30px rgba(46, 74, 125, 0.12);
+ position: fixed;
   z-index: 4000;
+  
+  /* 🚀 ضيف السطرين دول فوراً */
+  transform: translateZ(0);
+  backface-visibility: hidden;
   font-family: "Inter", sans-serif;
 }
 .close-menu-btn {
@@ -54,7 +59,8 @@
   align-items: center;  /* 👈 ده سر التظبيط */
   transform: translateX(-50%);
   cursor: pointer;
-  z-index: 20;
+ pointer-events: auto;
+  z-index: 4001;
 }
 .center-logo img {
   height: 60px;      /* جرّب 52–60 حسب ذوقك */
@@ -94,7 +100,7 @@
   cursor: pointer;
 
   filter: drop-shadow(0 2px 8px rgba(0,0,0,0.35));
-   transition: filter 40s linear;
+   transition: filter 0.3s ease;
 
 
 }
@@ -149,7 +155,24 @@
   stroke-width: 1.6;
   fill: none;
 }
+/* ابحث عن كلاس الـ Cart Drawer عندك وضيف له ده */
+.cart-drawer-overlay { 
+  position: fixed;
+  inset: 0;
+  z-index: 6000;
+  /* 🚀 إجبار الرندر على كارت الشاشة */
+  transform: translateZ(0);
+  will-change: opacity, transform;
+  /* لو فيه Blur ورا الكارت بيخليها تهنج، شيله جرب كدا */
+  backdrop-filter: none; 
+  background: rgba(0, 0, 0, 0.4);
+}
 
+.cart-drawer-content {
+  /* ... كودك الحالي ... */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
 /* ================= CART BADGE ================= */
 .cart-btn {
   position: relative;
@@ -267,7 +290,10 @@
   position: fixed;
   inset: 0;
   background: #fff;
-  z-index: 3000;
+  z-index: 5000; /* خليها أعلى من الناف بار اللي هو 4000 */
+  
+  /* 🚀 لتحسين الأداء */
+  transform: translateZ(0);
 }
 
 .menu-content {

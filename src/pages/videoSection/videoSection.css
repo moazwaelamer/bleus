@@ -7,21 +7,26 @@ html, body {
 }
 
 /* ===== VIDEO SECTION ===== */
+/* ===== VIDEO SECTION ===== */
 .video-section {
   position: relative;
-  height: calc(100vh - 70px); /* لو عندك navbar */
+  height: calc(100vh - 70px);
   width: 100%;
   overflow: hidden;
   background: #000;
   z-index: 1;
+  /* بيمنع أي حاجة جوه السكشن تطلع براه وتلغوش على الـ Nav */
+  contain: paint; 
 }
 
-/* الفيديو نفسه */
 .video-section video {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+  /* GPU Acceleration */
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
 }
 
 /* ===== SOUND BUTTON ===== */
@@ -29,19 +34,16 @@ html, body {
   position: absolute;
   bottom: 32px;
   right: 32px;
-  z-index: 20;              /* 👈 أعلى من الفيديو */
+  z-index: 20;
   width: 52px;
   height: 52px;
   border-radius: 50%;
   border: none;
-  background: rgba(0,0,0,0.55);
+  background: rgba(0, 0, 0, 0.75); /* أغمق شوية وشيلنا الـ blur */
   color: #fff;
-  font-size: 20px;
   cursor: pointer;
-  backdrop-filter: blur(8px);
-  transition: all 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-
 .sound-toggle:hover {
   background: rgba(255,255,255,0.9);
   color: #000;
