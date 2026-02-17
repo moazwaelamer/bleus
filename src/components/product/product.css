@@ -1,0 +1,246 @@
+:root {
+  --blue-main: #2E4A7D;
+  --blue-dark: #243b63;
+  --pink-soft: #F3D6E3;
+  --pink-hover: #EBC2D4;
+  --text-dark: #1e1e1e;
+  --text-muted: rgba(46, 74, 125, 0.6);
+  --line-soft: rgba(46, 74, 125, 0.15);
+  --shadow: 0 20px 40px rgba(46, 74, 125, 0.1);
+}
+
+/* ===== التنسيق الأساسي ===== */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: "Poppins", sans-serif;
+  background: #fafbfe;
+}
+
+.category-page {
+  padding: 160px 0 100px;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #fff 0%, var(--pink-soft) 100%);
+}
+
+/* ===== زرار الرجوع (الهوية الموحدة) ===== */
+.brand-header {
+  position: absolute;
+  top: 100px;
+  left: 5%;
+  z-index: 1000;
+}
+
+.cp-nav-back-button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #fff;
+  border: 2px solid var(--blue-main);
+  padding: 10px 22px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: 800;
+  color: var(--blue-main);
+}
+
+.cp-nav-back-button:hover {
+  background: var(--blue-main);
+  color: #fff;
+  transform: translateX(-5px);
+}
+
+/* ===== الحاوية ===== */
+.category-container {
+  width: 90%;
+  max-width: 1300px;
+  margin: auto;
+  display: flex; /* تحويل لـ Flex بدل Grid للتحكم الأفضل */
+  gap: 50px;
+}
+
+/* ===== السايد بار (Desktop) ===== */
+.category-sidebar {
+  width: 250px;
+  flex-shrink: 0;
+  border-right: 1px solid var(--line-soft);
+  padding-right: 20px;
+  position: sticky;
+  top: 120px;
+  height: fit-content;
+}
+
+.category-sidebar h3 {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--blue-main);
+  margin-bottom: 25px;
+  font-weight: 800;
+}
+
+.category-sidebar ul { list-style: none; padding: 0; }
+
+.sidebar-link {
+  text-decoration: none;
+  color: var(--text-muted);
+  font-size: 15px;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 15px;
+  transition: 0.3s;
+}
+
+.sidebar-link.active, .sidebar-link:hover {
+  color: var(--blue-main);
+  padding-left: 10px;
+  font-weight: 800;
+}
+
+/* ===== جريد المنتجات ===== */
+.category-content { flex: 1; }
+
+.category-header h1 {
+  font-size: 48px;
+  font-weight: 900;
+  color: var(--blue-main);
+  margin-bottom: 40px;
+  letter-spacing: -1px;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.product-card {
+  background: #fff;
+  border-radius: 30px;
+  padding: 20px;
+  border: 1px solid var(--line-soft);
+  text-align: center;
+  transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.product-card:hover {
+  transform: translateY(-12px);
+  box-shadow: var(--shadow);
+}
+
+.product-image-box {
+  height: 250px;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+/* الحل السحري لإزالة الخطوط من الكارت كله */
+.product-link {
+    text-decoration: none !important; /* بيلغي الخط تحت الاسم والسعر */
+    color: inherit !important;
+    display: block;
+}
+
+/* تنسيق منطقة النصوص */
+.product-card-info {
+    padding: 15px 5px;
+    text-align: center;
+}
+
+.product-card-info h3 {
+    font-size: 22px;
+    font-weight: 800; /* خط تقيل جداً وفخم */
+    color: #2E4A7D; /* لون البراند الكحلي */
+    margin: 10px 0 5px;
+    text-decoration: none !important; /* تأكيد إضافي */
+}
+
+.product-card-info span {
+    font-size: 18px;
+    font-weight: 700;
+    color: #243b63; /* لون السعر أغمق سيكة */
+    display: block;
+    text-decoration: none !important;
+}
+
+/* زرار View Details اللي طلبته جوه الكارت */
+.view-details-btn {
+    width: 100%;
+    background: #2E4A7D;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 50px;
+    font-weight: 700;
+    margin-top: 15px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.view-details-btn:hover {
+    background: #243b63;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(46, 74, 125, 0.3);
+}
+.product-image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* عشان الصورة متتقصش زي الصور اللي بعتها */
+}
+
+/* ================= الموبايل (التعديل السحري) ================= */
+@media (max-width: 992px) {
+  .category-page { padding-top: 100px !important; }
+  
+  .brand-header { position: relative; top: 0; left: 20px; margin-bottom: 20px; transform: scale(0.9); }
+
+  .category-container { flex-direction: column; width: 100%; gap: 10px; }
+
+  /* السايد بار بيتحول لشريط "تقليبة" Chips */
+  .category-sidebar {
+    width: 100% !important;
+    border: none;
+    padding: 10px 20px !important;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line-soft);
+  }
+
+  .category-sidebar h3 { display: none; }
+
+  .category-sidebar ul {
+    display: flex;
+    overflow-x: auto; /* ده اللي بيعمل السكرول بالجنب */
+    gap: 12px;
+    padding-bottom: 5px;
+    scrollbar-width: none;
+  }
+  
+  .category-sidebar ul::-webkit-scrollbar { display: none; }
+
+  .sidebar-link {
+    white-space: nowrap; /* يمنع نزول النص لسطر جديد */
+    background: #fff;
+    padding: 8px 20px !important;
+    border-radius: 50px;
+    border: 1px solid #eee;
+    font-size: 13px;
+    margin-bottom: 0;
+  }
+
+  .sidebar-link.active {
+    background: var(--blue-main);
+    color: #fff;
+    border-color: var(--blue-main);
+    padding-left: 20px;
+  }
+
+  .category-header h1 { font-size: 32px; text-align: center; margin-top: 20px; }
+  
+  .category-content { padding: 0 15px; }
+}

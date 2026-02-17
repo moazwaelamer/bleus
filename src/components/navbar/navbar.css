@@ -334,3 +334,165 @@
   height: 100%;
   object-fit: cover;
 }
+@media (max-width: 768px) {
+  .navbar {
+    display: flex;
+    justify-content: space-between; /* ده هيوزعهم يمين وشمال ونص */
+    align-items: center;
+    padding: 0 10px;
+    height: 65px; /* زودنا الطول سنة عشان ندي مساحة */
+  }
+
+  /* 1. العمود اللي على الشمال (كلمة Bleu's) */
+  .logo {
+    flex: 1; /* ياخد تلت المساحة */
+    display: flex;
+    justify-content: flex-start;
+  }
+  .logo img {
+    width: 65px !important; /* صغرنا الكلمة شوية عشان الاسم يبان */
+  }
+
+  /* 2. العمود اللي في النص (اللوجو المتحرك) */
+  .center-logo {
+    flex: 1; /* ياخد التلت اللي في النص بالظبط */
+    display: flex;
+    justify-content: center;
+    position: relative; /* رجعناه ريفليتيف بدل ستاتيك */
+    transform: none;
+    left: 50px; /* حركناه شوية عشان يطلع من النص ويخلي الاسم يبان */
+  }
+  .center-logo img {
+    height: 40px !important; /* حجمه كدة ممتاز */
+  }
+
+  /* 3. العمود اليمين (الأيقونات والاسم) */
+  /* 2. إعادة ضبط حاوية الأيقونات */
+  .nav-icons {
+    flex: 3; /* زودنا المساحة المخصصة للأيقونات */
+    gap: 12px; /* مسافة معقولة عشان ميركبوش فوق بعض */
+    justify-content: flex-end;
+  }
+
+  /* 3. تظبيط الـ Cart Button تحديداً */
+  .cart-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: auto !important;
+  }
+
+  /* تظبيط مكان الرقم (الـ Badge) عشان ميبقاش عشوائي */
+  .cart-badge {
+    top: -5px !important;
+    right: -8px !important;
+    width: 16px !important;
+    height: 16px !important;
+    font-size: 9px !important;
+    z-index: 10;
+  }
+  /* إظهار الاسم "Hi moaz" بشياكة */
+  .username-text {
+    display: block !important; /* رجعناه يظهر */
+    font-size: 11px; /* صغرنا الخط عشان ميزقش الأيقونات */
+    white-space: nowrap; /* عشان ميكسرش سطرين */
+    max-width: 50px; /* ليميت للاسم */
+    overflow: hidden;
+    text-overflow: ellipsis; /* لو الاسم طويل يحط نقط */
+    color: var(--blue-main);
+  }
+  .blue-heart {
+    display: none; /* أخفينا القلب عشان مايشوش */
+  }
+
+  .icon-btn {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .icon-btn svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+@media (max-width: 768px) {
+  /* 1. الحاوية الأساسية للمنيو */
+  .menu-overlay {
+    background: #fff; /* لون احتياطي */
+    overflow-y: auto;
+  }
+
+  .menu-content {
+    flex-direction: column;
+    height: 100vh;
+    position: relative;
+  }
+
+  /* 2. تحويل الجزء اليمين (الصورة) لخلفية مالية الشاشة */
+  .menu-right {
+    position: absolute;
+    inset: 0;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 1;
+    display: block !important; /* نأكد إنها ظاهرة */
+  }
+
+  .menu-right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.7); /* تغميق الصورة شوية عشان الكلام يبان */
+  }
+
+  /* 3. الجزء الشمال (الكلام) هنخليه فوق الصورة */
+  .menu-left {
+    position: relative;
+    z-index: 2; /* فوق الصورة */
+    width: 100% !important;
+    height: 100%;
+    padding: 120px 40px !important; /* مساحة من فوق عشان الـ Navbar */
+    
+    /* تدرج لوني عشان الكلام يبرز */
+    background: linear-gradient(
+      to right, 
+      rgba(255, 255, 255, 0.95) 30%, 
+      rgba(255, 255, 255, 0.4) 100%
+    );
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 20px !important;
+  }
+
+  /* 4. تظبيط اللينكات */
+  .menu-left a {
+    font-size: 28px !important;
+    font-weight: 700;
+    color: var(--blue-main) !important;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    letter-spacing: -0.5px;
+    transition: all 0.3s ease;
+  }
+
+  .menu-left a:hover {
+    transform: translateX(10px);
+    color: var(--pink-hover) !important;
+  }
+
+  /* 5. زرار القفل نكبره عشان صباع المستخدم */
+  .close-menu-btn {
+    top: 20px !important;
+    right: 20px !important;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.8) !important;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+}

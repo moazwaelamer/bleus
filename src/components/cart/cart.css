@@ -402,3 +402,116 @@
 .cart-checkout:hover {
   background: #2f2f2f;
 }
+/* ================= RESPONSIVE ADJUSTMENTS ================= */
+
+/* للشاشات المتوسطة (Tablets) */
+@media (max-width: 1024px) {
+  .cart-panel {
+    width: 500px; /* تصغير العرض شوية */
+    padding: 30px;
+  }
+}
+
+/* للموبايل (Phones) */
+@media (max-width: 768px) {
+  .cart-panel {
+    width: 100%; /* الكارت بياخد الشاشة كلها في الموبايل */
+    padding: 20px;
+  }
+
+  .cart-head h2 {
+    font-size: 22px; /* تصغير العنوان */
+  }
+
+  /* تعديل رصة المنتج في الموبايل */
+  .bb-row {
+    grid-template-columns: 80px 1fr 40px; /* 3 أعمدة بس (صورة - تفاصيل - سلة) */
+    grid-template-areas: 
+      "thumb meta side"
+      "thumb qty side"; /* رصة الكروت تحت بعض */
+    gap: 15px;
+    padding: 20px 0;
+  }
+
+  .cart-thumb.big {
+    width: 80px;
+    height: 80px;
+    grid-area: thumb;
+  }
+
+  .cart-meta {
+    grid-area: meta;
+    gap: 2px;
+  }
+
+  .bb-title {
+    font-size: 16px; /* خط أصغر للموبايل */
+    margin-bottom: 2px;
+  }
+
+  .cart-sub {
+    margin-bottom: 8px;
+  }
+
+  /* الزراير (+ و -) نخليها في صف لوحدها تحت الكلام */
+  .bb-qty {
+    grid-area: qty;
+    justify-content: flex-start; /* تبدأ من الشمال */
+    margin-top: 5px;
+  }
+
+  .bb-qty button {
+    width: 26px;
+    height: 26px;
+    font-size: 14px;
+  }
+
+  /* السعر وسلة المهملات على اليمين */
+  .cart-side {
+    grid-area: side;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  .bb-price {
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .cart-remove {
+    width: 35px; /* سلة أصغر في الموبايل */
+    height: 35px;
+  }
+
+  .cart-remove svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  /* الفوتر (Checkout Button) */
+  .cart-foot {
+    padding-top: 20px;
+  }
+
+  .cart-checkout {
+    padding: 15px;
+    font-size: 14px;
+    position: sticky;
+    bottom: 0;
+  }
+}
+
+/* شاشات الموبايل الصغيرة جداً */
+@media (max-width: 480px) {
+  .cart-panel {
+    padding: 15px;
+  }
+  
+  .bb-row {
+    grid-template-columns: 70px 1fr 35px;
+  }
+  
+  .bb-title {
+    font-size: 14px;
+  }
+}

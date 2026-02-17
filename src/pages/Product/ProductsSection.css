@@ -4,6 +4,64 @@
   --pink-hover: #EBC2D4;
   --text-dark: #1e1e1e;
 }
+/* ================= SINGLE PRODUCT FOCUS ================= */
+
+/* تظبيط الـ Dots عشان تبقى شيك */
+.center-slider .slick-dots {
+  bottom: -40px;
+}
+.center-slider .slick-dots li button:before {
+  color: var(--blue-main);
+  font-size: 10px;
+  opacity: 0.2;
+}
+.center-slider .slick-dots li.slick-active button:before {
+  color: var(--blue-main);
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .products-section .inner {
+    padding: 0 15px; /* تقليل الحواف الجانبية */
+  }
+
+  .product-slide {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  border: 1px solid rgba(0,0,0,0.03);
+  margin: 15px; /* مسافة بين الكروت */
+}
+
+  .product-slide img {
+    height: 350px !important; /* زودنا الارتفاع عشان الصورة "تاخد حقها" */
+    width: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1); /* الظل على الصورة بس */
+    margin-bottom: 25px;
+  }
+
+  .product-slide h3 {
+    font-size: 24px; /* كبرنا الخط */
+    font-weight: 700;
+    color: var(--blue-main);
+    margin-bottom: 15px;
+  }
+
+  .product-slide button {
+    width: 100%; /* الزرار ياخد العرض كله في الموبايل بيبقى أسهل في الدوس */
+    padding: 15px;
+    font-size: 14px;
+    letter-spacing: 2px;
+    background: var(--blue-main);
+    color: #fff;
+    border-radius: 15px;
+  }
+}
 /* ================= SECTION ================= */
 .products-section {
  padding: 90px 0;
@@ -37,12 +95,11 @@ html, body {
 
 .section-title {
   text-align: center;
-  font-size: 28px;
-  font-weight: 600;
+  font-size: 32px;
+  font-weight: 700;
   color: var(--blue-main);
-   letter-spacing: 2px;
-   margin-bottom: 60px;
   margin-bottom: 50px;
+  letter-spacing: 1px;
 }
 
 /* ================= SLICK ================= */
@@ -147,19 +204,63 @@ html, body {
 }
 
 
-/* ================= MOBILE ================= */
-@media (max-width: 768px) {
-  .product-slide {
-    width: 260px;
-  }
+/* ================= RESPONSIVE ADJUSTMENTS ================= */
 
-  .product-slide img {
-    height: 180px;
+/* الشاشات الكبيرة (Desktop) */
+@media (min-width: 769px) {
+  .product-slide {
+    width: 90% !important; /* مسافة بسيطة بين المنتجات الثلاثة */
+    margin: 0 auto;
   }
 }
-.product-slide h3 {
-  font-size: 19px;
-  font-weight: 500;
-  margin-bottom: 14px;
-  color: var(--text-dark);
+
+/* الموبايل (Mobile Focus) */
+@media (max-width: 768px) {
+  /* السلايدر: يمنع ظهور حواف المنتجات المجاورة */
+  .center-slider .slick-list {
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+
+  /* الكارت: يظهر منتج واحد في نص الشاشة */
+  .product-slide {
+    width: 90% !important; 
+    max-width: 340px;
+    margin: 20px auto !important;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* ظل خفيف جداً */
+    padding: 15px;
+  }
+
+  /* الصورة: تكون مربعة (ليست طويلة) */
+  .product-slide img {
+    width: 100% !important;
+    height: auto !important; 
+    aspect-ratio: 1 / 1 !important; /* 👈 السحر هنا لجعلها مربعة */
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 15px;
+  }
+
+  /* نلغي الفلاتر والبهتان في الموبايل عشان المنتج يبرز */
+  .center-slider .slick-slide {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+
+  .product-slide h3 {
+    font-size: 19px;
+    color: var(--blue-main);
+    font-weight: 600;
+  }
+
+  .product-slide button {
+    width: 100%;
+    padding: 14px;
+    border-radius: 12px;
+    background: var(--blue-main);
+    font-size: 14px;
+  }
 }

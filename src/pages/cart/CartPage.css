@@ -486,3 +486,216 @@
   .cp-nav-content { padding: 0 20px; }
   .like-track { grid-template-columns: 1fr 1fr; }
 }
+/* ================= CHECKOUT RESPONSIVE ================= */
+
+/* 1. التابلت والشاشات المتوسطة */
+@media (max-width: 1024px) {
+  .cp-page-grid {
+    display: flex;
+    flex-direction: column; /* نقلب الصفحة عمودي */
+  }
+
+  .cp-main-content {
+    order: 1; /* المنتجات تظهر الأول */
+    padding: 40px 20px;
+    border-right: none;
+  }
+
+  .cp-sidebar {
+    order: 2; /* ملخص الحساب ينزل تحت */
+    width: 100%;
+    position: static; /* نلغي الثبات عشان ميزحمش الشاشة */
+    padding: 40px 20px;
+    background: var(--bb-light-gray);
+    border-top: 1px solid var(--bb-gray-line);
+  }
+
+  .like-track {
+    grid-template-columns: repeat(2, 1fr); /* صورتين بس جنب بعض */
+  }
+}
+
+/* 2. الموبايل (الشاشات الصغيرة) */
+@media (max-width: 768px) {
+  .cp-nav-content {
+    padding: 0 20px;
+  }
+
+  .cp-title {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+
+  /* تعديل رصة المنتج في الموبايل */
+  .cp-item-row {
+    flex-direction: row;
+    flex-wrap: wrap; /* عشان لو الاسم طويل ينزل تحت */
+    gap: 15px;
+    position: relative;
+    padding: 20px 0;
+  }
+
+  .cp-img {
+    width: 90px;
+    height: 90px;
+  }
+
+  .cp-info {
+    flex: 1;
+  }
+
+  .cp-info h3 {
+    font-size: 16px;
+  }
+
+  /* السعر والكمية في سطر لوحدهم تحت */
+  .cp-item-right {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .bb-qty-box button {
+    padding: 5px 12px;
+  }
+
+  /* سكشن "قد يعجبك أيضاً" */
+  .like-track {
+    grid-template-columns: 1fr; /* منتج واحد في السطر عشان يبان كبير */
+    gap: 30px;
+  }
+
+  .like-img-wrapper {
+    padding: 10px;
+  }
+
+  .cp-btn-primary {
+    padding: 18px;
+    font-size: 11px;
+    position: sticky;
+    bottom: 0; /* الزرار يثبت تحت خالص عشان يسهل الدفع */
+    z-index: 100;
+  }
+}
+
+/* 3. معالجة الصور عشان متبقاش مقصوصة في الشاشات الضيقة */
+@media (max-width: 400px) {
+  .cp-item-row {
+    align-items: flex-start;
+  }
+  
+  .cp-img {
+    width: 70px;
+    height: 70px;
+  }
+}
+/* ================= Clean & Bold Responsive Layout ================= */
+
+@media (max-width: 1024px) {
+    .cp-page-grid {
+        display: block; /* إلغاء الـ Flex عشان نستغل العرض بالكامل */
+    }
+
+    .cp-main-content {
+        padding: 40px 15px; /* تقليل المسافات الجانبية عشان نوسع للمحتوى */
+        border-right: none;
+    }
+
+    .cp-sidebar {
+        width: 100%;
+        position: static;
+        padding: 30px 15px;
+        background: #fff;
+        border-top: 8px solid var(--bb-light-gray); /* فاصل بصري مريح */
+    }
+}
+
+@media (max-width: 768px) {
+    /* تظبيط الهيدر */
+    .cp-nav-content {
+        padding: 0 15px;
+    }
+
+    .cp-title {
+        font-size: 28px;
+        margin-bottom: 25px;
+        padding: 0 5px;
+    }
+
+    /* المنتج: الصورة لازم تبان كبيرة */
+    .cp-item-row {
+        display: flex;
+        flex-wrap: wrap; 
+        gap: 15px;
+        padding: 20px 5px;
+    }
+
+    .cp-img {
+        width: 100px; /* كبرنا الصورة شوية */
+        height: 100px;
+        flex-shrink: 0;
+    }
+
+    .cp-info {
+        flex: 1;
+        min-width: 150px; /* عشان الاسم ميتعصرش */
+    }
+
+    /* السعر والكمية في سطر واحد عشان الزحمة */
+    .cp-item-right {
+        width: 100%;
+        flex-direction: row !important;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 5px;
+        background: #fdfdfd; /* خلفية خفيفة تفصلهم */
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    /* سكشن "You May Also Like" - صورتين في السطر */
+    .like-track {
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 10px;
+        padding: 0 5px;
+    }
+
+    .like-img-wrapper {
+        height: 160px; /* ارتفاع ثابت يخلي الصور واضحة */
+        padding: 10px;
+    }
+
+    .like-title {
+        font-size: 13px;
+        height: 32px; /* توحيد الارتفاع عشان الزراير متبقاش طالعة نازلة */
+        overflow: hidden;
+    }
+
+    /* الزراير */
+    .cp-btn-primary {
+        padding: 18px;
+        font-size: 13px;
+        border-radius: 4px;
+        width: calc(100% - 10px);
+        margin: 20px auto;
+        display: block;
+    }
+}
+
+/* حل مشكلة المساحات الجانبية في الشاشات الصغيرة جداً */
+@media (max-width: 480px) {
+    .cp-img {
+        width: 85px;
+        height: 85px;
+    }
+    
+    .like-track {
+        grid-template-columns: 1fr; /* صورة واحدة كبيرة للموبايلات الضعيفة */
+    }
+    
+    .like-img-wrapper {
+        height: 200px;
+    }
+}
