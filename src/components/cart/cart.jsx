@@ -34,43 +34,7 @@ export default function CartPanel({ onClose }) {
     window.dispatchEvent(new Event("cartUpdated"));
   };
 
-  /* ===== TOTALS ===== */
-  
-
-  /* ===== MAY ALSO LIKE DATA ===== */
-  const related =
-    items.length > 0
-      ? products.filter(
-          p =>
-            p.category === items[0].category &&
-            !items.find(i => i.id === p.id)
-        )
-      : [];
-
-  const addSuggested = (product) => {
-    const exist = items.find(i => i.id === product.id);
-    const next = exist
-      ? items.map(i =>
-          i.id === product.id
-            ? { ...i, quantity: i.quantity + 1 }
-            : i
-        )
-      : [...items, { ...product, quantity: 1 }];
-
-    update(next);
-  };
-
-  const nextLike = () => {
-    if (likeIndex + VISIBLE < related.length) {
-      setLikeIndex(likeIndex + 1);
-    }
-  };
-
-  const prevLike = () => {
-    if (likeIndex > 0) {
-      setLikeIndex(likeIndex - 1);
-    }
-  };
+ 
 
   /* ===== CONTINUE SHOPPING ===== */
   const goToCategories = () => {
