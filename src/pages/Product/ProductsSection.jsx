@@ -32,7 +32,7 @@ export default function ProductsSection() {
   };
 
   return (
-    <section className="products-section">
+   <section id="products-section" className="products-section">
       <div className="inner">
         <h2 className="section-title">Best Sellers</h2>
 

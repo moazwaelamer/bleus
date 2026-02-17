@@ -19,10 +19,50 @@
   align-items: center;
   justify-content: space-between;
 
-  background: transparent;
+   background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 30px rgba(46, 74, 125, 0.12);
   z-index: 4000;
   font-family: "Inter", sans-serif;
-  transition: background 0.35s ease, box-shadow 0.35s ease;
+}
+.close-menu-btn {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #1a1f36; /* لون غامق عشان يبان على الخلفية البيضاء */
+  padding: 10px;
+  z-index: 1001;
+  transition: transform 0.3s ease;
+}
+
+.close-menu-btn:hover {
+  transform: rotate(90deg); /* حركة خفيفة عند الهوفر */
+}
+
+.close-menu-btn svg {
+  width: 32px;
+  height: 32px;
+}
+.center-logo {
+  position: absolute;
+  left: 50%;
+  height: 70px;          /* نفس ارتفاع الـ navbar */
+  display: flex;
+  align-items: center;  /* 👈 ده سر التظبيط */
+  transform: translateX(-50%);
+  cursor: pointer;
+  z-index: 20;
+}
+.center-logo img {
+  height: 60px;      /* جرّب 52–60 حسب ذوقك */
+  width: 100px;      /* حافظ على تناسب الأبعاد */
+  object-fit: contain;
+}
+.center-logo {
+  pointer-events: auto;
 }
 
 /* SCROLLED STATE */

@@ -90,7 +90,7 @@ export default function VideoSection() {
   };
 
   return (
-    <section className="video-section" ref={sectionRef}>
+    <section className="video-section" id="video" ref={sectionRef}>
       <video ref={videoRef} loop preload="auto">
         <source src="/assest/bleu.mp4" type="video/mp4" />
       </video>

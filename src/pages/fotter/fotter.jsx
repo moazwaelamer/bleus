@@ -4,7 +4,7 @@ import "./fotter.css";
 
 export default function Footer() {
   return (
-    <footer className="site-footer">
+    <footer className="site-footer" id="footer">
       <div className="footer-top">
 
         {/* LEFT */}

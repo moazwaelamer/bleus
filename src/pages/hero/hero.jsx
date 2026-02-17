@@ -10,7 +10,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="hero">
+    <section className="hero" id="hero">
       <img
         src="/assest/wal.jpeg"
         alt="Coffee"

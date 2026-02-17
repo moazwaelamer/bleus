@@ -230,43 +230,6 @@ const progress = Math.min(
             </div>
           ))}
 
-          {/* MAY ALSO LIKE */}
-          {related.length > 0 && (
-            <div className="cart-like">
-              <div className="like-head">
-                <h4>You may also like</h4>
-                <div className="like-arrows">
-                  <button onClick={prevLike} disabled={likeIndex === 0}>‹</button>
-                  <button
-                    onClick={nextLike}
-                    disabled={likeIndex + VISIBLE >= related.length}
-                  >
-                    ›
-                  </button>
-                </div>
-              </div>
-
-              <div className="like-track">
-                {related
-                  .slice(likeIndex, likeIndex + VISIBLE)
-                  .map(p => (
-                    <div key={p.id} className="like-card">
-                      <img src={p.image} alt={p.title} />
-                      <div className="like-meta">
-                        <p>{p.title}</p>
-                        <span>{p.price} EGP</span>
-                      </div>
-                      <button
-                        className="like-add"
-                        onClick={() => addSuggested(p)}
-                      >
-                        ADD | {p.price} EGP
-                      </button>
-                    </div>
-                  ))}
-              </div>
-            </div>
-          )}
         </section>
 
         {/* FOOTER */}

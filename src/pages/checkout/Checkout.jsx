@@ -6,118 +6,126 @@ export default function Checkout() {
   const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem("currentUser"));
   const CART_KEY = user ? `cart_${user.username}` : "cart_guest";
-
   const [items, setItems] = useState([]);
-  const [loading, setLoading] = useState(false);
 
-  /* ===== LOAD CART ===== */
   useEffect(() => {
     const stored = JSON.parse(localStorage.getItem(CART_KEY)) || [];
     setItems(stored.map(i => ({ ...i, quantity: i.quantity || 1 })));
   }, [CART_KEY]);
 
-  /* ===== TOTALS ===== */
-  const FREE_SHIPPING_LIMIT = 300;
-
-  const subtotal = items.reduce(
-    (sum, item) => sum + item.price * item.quantity,
-    0
-  );
-
-  const remaining = Math.max(0, FREE_SHIPPING_LIMIT - subtotal);
-
-  const shipping =
-    items.length === 0
-      ? 0
-      : remaining === 0
-      ? 0
-      : 60;
-
+  const subtotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const shipping = subtotal > 300 || items.length === 0 ? 0 : 60;
   const total = subtotal + shipping;
 
   return (
-    <div className="checkout-page">
+    <div className="stripe-checkout-container">
+      {/* الجزء الأيسر: ملخص الطلب (الخلفية الرمادية) */}
+      <aside className="order-summary-side">
+        <div className="summary-sticky-content">
+          <div className="brand-header">
+            <div className="brand-header">
+  <button className="cp-nav-back-button" onClick={() => navigate("/CartPage")}>
+    {/* السهم */}
+    <svg className="nav-back-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+      <line x1="19" y1="12" x2="5" y2="12"></line>
+      <polyline points="12 19 5 12 12 5"></polyline>
+    </svg>
 
-      {/* HEADER */}
-      <header className="checkout-header">
-        <h1>Checkout</h1>
-        <button className="back-btn" onClick={() => navigate("/CartPage")}>
-          ← Back to Cart
-        </button>
-      </header>
+    {/* حاوية النص المتغير */}
+    <div className="text-container">
+      <span className="default-text">
+        <img src="/assest/blue.jpg" alt="logo" className="nav-logo-small" />
+        BLEUS
+      </span>
+      <span className="hover-text">BACK</span>
+    </div>
+  </button>
+</div>
+          </div>
 
-      {/* CONTENT */}
-      <div className="checkout-layout">
+          <div className="amount-section">
+            <p className="pay-label">Pay Blue Bottle Coffee, LLC</p>
+            <h1 className="total-amount">{total.toFixed(2)} EGP</h1>
+          </div>
 
-        {/* LEFT – SUMMARY */}
-        <aside className="checkout-summary">
-          <h2>Order Summary</h2>
-
-          {items.map(item => (
-            <div key={item.id} className="summary-item">
-              <img src={item.image} alt={item.title} />
-              <div>
-                <p>{item.title}</p>
-                <span>{item.quantity} × {item.price} EGP</span>
+          <div className="items-review-list">
+            {items.map((item) => (
+              <div key={item.id} className="review-item">
+                <div className="item-img-wrapper">
+                  <img src={item.image} alt={item.title} />
+                  <span className="item-badge">{item.quantity}</span>
+                </div>
+                <div className="item-info">
+                  <p className="item-title">{item.title}</p>
+                  <p className="item-desc">Size: One Size</p>
+                </div>
+                <span className="item-price">{(item.price * item.quantity).toFixed(2)} EGP</span>
               </div>
+            ))}
+          </div>
+
+          <div className="pricing-footer">
+            <div className="price-row"><span>Subtotal</span><span>{subtotal.toFixed(2)} EGP</span></div>
+            <div className="price-row"><span>Shipping</span><span>{shipping === 0 ? "Free" : `${shipping.toFixed(2)} EGP`}</span></div>
+            <div className="price-row total-row">
+              <span>Total due</span>
+              <span>{total.toFixed(2)} EGP</span>
             </div>
-          ))}
-
-          <div className="summary-row">
-            <span>Subtotal</span>
-            <span>{subtotal} EGP</span>
           </div>
+        </div>
+      </aside>
 
-          <div className="summary-row">
-            <span>Shipping</span>
-            <span>{shipping === 0 ? "Free" : `${shipping} EGP`}</span>
-          </div>
-
-          <div className="summary-total">
-            <span>Total</span>
-            <strong>{total} EGP</strong>
-          </div>
-        </aside>
-
-        <section className="checkout-form">
-          <h2>Shipping information</h2>
-
-          <input placeholder="Email" />
-          <input placeholder="Full name" />
-          <input placeholder="Address line 1" />
-
-          <div className="row">
-            <input placeholder="City" />
-            <input placeholder="ZIP" />
-          </div>
-
-          <input placeholder="Phone" />
-
-          <h2>Payment</h2>
-
-          <div className="payment-box">
-            <input placeholder="1234 1234 1234 1234" />
-            <div className="row">
-              <input placeholder="MM / YY" />
-              <input placeholder="CVC" />
-            </div>
-            <input placeholder="Name on card" />
-          </div>
-
-          <button
-            className="pay-btn"
-            disabled={loading}
-            onClick={() => setLoading(true)}
-          >
-            {loading ? "Processing..." : `Pay ${total} EGP`}
+      {/* الجزء الأيمن: استمارة الدفع (الخلفية البيضاء) */}
+      <main className="checkout-form-side">
+        <div className="form-wrapper">
+          <button className="express-checkout-btn">
+            Pay with <span className="link-logo">link</span>
           </button>
 
-          <p className="stripe-note">
-            Powered by Stripe · UI only
-          </p>
-        </section>
+          <div className="divider">
+            <span>Or pay with card</span>
+          </div>
 
-      </div>
+          <section className="form-group">
+            <h3>Email</h3>
+            <input type="email" placeholder="email@example.com" className="full-width-input" />
+          </section>
+
+          <section className="form-group">
+            <h3>Shipping address</h3>
+            <div className="stacked-inputs">
+              <input type="text" placeholder="Full name" />
+              <select className="country-select"><option>Egypt</option></select>
+              <input type="text" placeholder="Address line 1" />
+              <input type="text" placeholder="Address line 2 (Optional)" />
+              <div className="input-row">
+                <input type="text" placeholder="City" />
+                <input type="text" placeholder="Postal code" />
+              </div>
+            </div>
+          </section>
+
+          <section className="form-group">
+            <h3>Payment method</h3>
+            <div className="card-element-container">
+              <div className="card-number-wrapper">
+                <input type="text" placeholder="Card number" />
+                <div className="card-icons">💳</div>
+              </div>
+              <div className="input-row">
+                <input type="text" placeholder="MM / YY" />
+                <input type="text" placeholder="CVC" />
+              </div>
+            </div>
+          </section>
+
+          <button className="main-submit-btn">
+            Pay {total.toFixed(2)} EGP
+          </button>
+
+          <p className="footer-note">Powered by <b>Stripe</b> | Terms Privacy</p>
+        </div>
+      </main>
     </div>
   );
 }

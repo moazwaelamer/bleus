@@ -1,179 +1,159 @@
 :root {
-  --blue-main: #2e4a7d;
-  --line-soft: #e5e9f2;
-  --text-dark: #1e1e1e;
-  --muted: #7a7a7a;
-  --bg-soft: #f9fbff;
-}
-
-/* PAGE */
-.checkout-page {
-   padding-top: 90px;
-  min-height: 100vh;
-  background: #fff;
-  font-family: "Inter", sans-serif;
-}
-
-/* HEADER */
-.checkout-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 28px 60px;
-  border-bottom: 1px solid var(--line-soft);
-}
-
-.checkout-header h1 {
-  font-size: 32px;
-  color: var(--blue-main);
-}
-
-.back-btn {
-  background: none;
-  border: 1px solid var(--line-soft);
-  padding: 8px 14px;
-  cursor: pointer;
-}
-
-/* ===== MAIN LAYOUT ===== */
-.checkout-layout {
+  --stripe-bg: #f6f9fc;
+  --stripe-border: #e6ebf1;
+  --stripe-text-dark: #1a1f36;
+  --stripe-text-muted: #697386;
+  --stripe-blue: #0570de;
+  --link-green: #00d66f;
+}/* الحاوية الرئيسية */
+.stripe-checkout-container {
   display: grid;
-  grid-template-columns: 420px 1fr; /* شمال / يمين */
-  gap: 48px;
-  padding: 48px 60px;
-  align-items: flex-start;
+  grid-template-columns: 1fr 1.2fr;
+  /* ده السطر اللي هيحل المشكلة: بيدي مساحة للناف بار */
+  margin-top: 80px; 
+  min-height: calc(100vh - 80px); /* يملأ باقي الصفحة بعد الناف بار */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #1a1f36;
 }
 
-/* ===== LEFT : SUMMARY ===== */
-.checkout-summary {
-  border-right: 1px solid var(--line-soft);
-  padding-right: 32px;
+/* تعديل الجزء الأيسر (الرمادي) */
+.order-summary-side {
+  background-color: #f6f9fc;
+  border-right: 1px solid #e6ebf1;
+  display: flex;
+  justify-content: flex-end;
+  padding: 40px 50px; /* قللنا البادنج اللي فوق شوية */
+}
+
+
+/* الجزء الأيمن (الأبيض) */
+.checkout-form-side {
+  background: #ffffff;
+  padding: 40px 80px;
+  overflow-y: auto; /* عشان لو الفورم طويلة تعمل سكرول لوحدها */
+}
+
+/* لو لسه فيه جزء مستخبي تحت الناف، اتأكد إن الـ Navbar نفسه ليه z-index عالي */
+.navbar {
+  z-index: 1000; /* تأكد إن الناف بار فوق كل حاجة */
+}
+/* LEFT SIDE - SUMMARY */
+.order-summary-side {
+  background-color: var(--stripe-bg);
+  border-right: 1px solid var(--stripe-border);
+  display: flex;
+  justify-content: flex-end;
+  padding: 60px 50px;
+}
+
+.summary-sticky-content {
+  width: 100%;
+  max-width: 400px;
   position: sticky;
-  top: 120px;
+  top: 60px;
 }
 
-.checkout-summary h2 {
-  font-size: 26px;
-  margin-bottom: 24px;
-  color: var(--blue-main);
-}
-
-.summary-item {
+.brand-header {
   display: flex;
-  gap: 14px;
-  margin-bottom: 18px;
-}
-
-.summary-item img {
-  width: 64px;
-  height: 64px;
-  border-radius: 8px;
-  object-fit: cover;
-}
-
-.summary-item p {
-  margin: 0;
-  font-weight: 500;
-}
-
-.summary-item span {
-  font-size: 14px;
-  color: var(--muted);
-}
-
-.summary-row {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 14px;
-  font-size: 15px;
-}
-
-.summary-total {
-  margin-top: 22px;
-  padding-top: 16px;
-  border-top: 1px solid var(--line-soft);
-  font-size: 18px;
-  font-weight: 600;
-  display: flex;
-  justify-content: space-between;
-}
-
-/* ===== RIGHT : FORM ===== */
-.checkout-form {
-  padding-left: 16px;
-}
-
-.checkout-form h2 {
-  font-size: 24px;
-  margin-bottom: 16px;
-  color: var(--blue-main);
-}
-
-.checkout-form input {
-  width: 100%;
-  padding: 14px 16px;
-  border: 1px solid var(--line-soft);
-  margin-bottom: 14px;
-  font-size: 15px;
-}
-
-.checkout-form input:focus {
-  outline: none;
-  border-color: var(--blue-main);
-}
-
-.row {
-  display: flex;
+  align-items: center;
   gap: 12px;
+  margin-bottom: 30px;
 }
 
-/* PAYMENT BOX */
-.payment-box {
-  border: 1px solid var(--line-soft);
-  padding: 18px;
-  margin-bottom: 18px;
+.brand-logo-placeholder {
+  width: 28px;
+  height: 28px;
+  background: white;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-/* PAY BUTTON */
-.pay-btn {
-  width: 100%;
-  padding: 18px;
-  background: var(--blue-main);
-  color: #fff;
-  border: none;
-  font-size: 17px;
-  cursor: pointer;
-  margin-top: 10px;
+.brand-name { font-weight: 600; font-size: 15px; opacity: 0.8; }
+
+.pay-label { color: var(--stripe-text-muted); font-size: 15px; margin: 0; }
+.total-amount { font-size: 42px; font-weight: 700; margin: 8px 0 40px; letter-spacing: -1px; }
+
+.items-review-list { margin-bottom: 30px; }
+
+.review-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
 }
 
-.pay-btn:hover {
-  background: #243b63;
+.item-img-wrapper { position: relative; }
+.item-img-wrapper img { width: 64px; height: 64px; border-radius: 8px; border: 1px solid var(--stripe-border); background: #fff; }
+.item-badge {
+  position: absolute; top: -8px; right: -8px;
+  background: #697386; color: white;
+  font-size: 11px; padding: 2px 6px; border-radius: 10px; font-weight: bold;
 }
 
-/* STRIPE NOTE */
-.stripe-note {
-  margin-top: 14px;
-  text-align: center;
-  font-size: 12px;
-  color: var(--muted);
+.item-info { flex: 1; }
+.item-title { font-weight: 600; font-size: 14px; margin: 0; }
+.item-desc { color: var(--stripe-text-muted); font-size: 13px; margin: 4px 0 0; }
+.item-price { font-weight: 500; font-size: 14px; }
+
+.pricing-footer { border-top: 1px solid var(--stripe-border); padding-top: 20px; }
+.price-row { display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 14px; color: var(--stripe-text-muted); }
+.total-row { border-top: 1px solid var(--stripe-border); padding-top: 16px; margin-top: 16px; color: var(--stripe-text-dark); font-weight: 600; font-size: 16px; }
+
+/* RIGHT SIDE - FORM */
+.checkout-form-side {
+  background: #ffffff;
+  padding: 60px 80px;
 }
 
-/* ===== MOBILE ===== */
-@media (max-width: 900px) {
-  .checkout-header {
-    padding: 20px;
-  }
+.form-wrapper { width: 100%; max-width: 480px; }
 
-  .checkout-layout {
-    grid-template-columns: 1fr;
-    padding: 24px;
-  }
+.express-checkout-btn {
+  width: 100%; background: var(--link-green); color: #fff; border: none;
+  padding: 12px; border-radius: 4px; font-weight: 700; cursor: pointer; font-size: 15px;
+}
 
-  .checkout-summary {
-    border-right: none;
-    border-bottom: 1px solid var(--line-soft);
-    padding-bottom: 24px;
-    margin-bottom: 24px;
-    position: static;
-  }
+.link-logo { font-style: italic; font-weight: 900; }
+
+.divider {
+  text-align: center; margin: 30px 0; position: relative;
+}
+.divider::before { content: ""; position: absolute; top: 50%; left: 0; width: 100%; height: 1px; background: var(--stripe-border); }
+.divider span { background: #fff; padding: 0 15px; position: relative; color: var(--stripe-text-muted); font-size: 13px; }
+
+.form-group h3 { font-size: 15px; font-weight: 600; margin-bottom: 10px; margin-top: 25px; }
+
+.full-width-input, .stacked-inputs input, .stacked-inputs select, .card-element-container input {
+  width: 100%; padding: 12px; border: 1px solid var(--stripe-border); border-radius: 4px; font-size: 15px;
+}
+
+.stacked-inputs input, .stacked-inputs select { border-radius: 0; margin-bottom: -1px; }
+.stacked-inputs input:first-child { border-radius: 4px 4px 0 0; }
+.stacked-inputs .input-row input:first-child { border-radius: 0 0 0 4px; }
+.stacked-inputs .input-row input:last-child { border-radius: 0 0 4px 0; }
+
+.input-row { display: grid; grid-template-columns: 1fr 1fr; }
+
+.card-element-container { border: 1px solid var(--stripe-border); border-radius: 4px; overflow: hidden; }
+.card-number-wrapper { position: relative; }
+.card-icons { position: absolute; right: 12px; top: 12px; opacity: 0.5; }
+.card-element-container input { border: none; border-bottom: 1px solid var(--stripe-border); border-radius: 0; }
+.card-element-container .input-row input { border-bottom: none; }
+.card-element-container .input-row input:first-child { border-right: 1px solid var(--stripe-border); }
+
+.main-submit-btn {
+  width: 100%; background: var(--stripe-blue); color: #fff; border: none;
+  padding: 14px; border-radius: 4px; font-weight: 600; font-size: 16px; margin-top: 40px; cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.footer-note { text-align: center; color: var(--stripe-text-muted); font-size: 12px; margin-top: 20px; }
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .stripe-checkout-container { grid-template-columns: 1fr; }
+  .order-summary-side { justify-content: center; padding: 40px 20px; }
+  .checkout-form-side { padding: 40px 20px; }
 }

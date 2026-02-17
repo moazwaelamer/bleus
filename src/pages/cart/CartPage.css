@@ -1,173 +1,488 @@
-/* PAGE */
-.cart-page {
-  background: #f7f6f3;
-  padding-top: 80px;
+:root {
+  --bb-cream: #fdfdfb;
+  --bb-white: #ffffff;
+  --bb-blue: #00aeef;
+  --bb-gray-line: #e2e2e1;
+  --bb-dark: #4d4d4d;
+  --bb-text: #333333;
+  --bb-light-gray: #f9f9f9;
+}
+
+/* Base */
+.cp-wrapper {
+  background: var(--bb-cream);
+  min-height: 100vh;
   font-family: "Inter", sans-serif;
-  color: #1a1a1a;
+  color: var(--bb-text);
 }
 
-/* GRID */
-.cart-grid {
-  max-width: 1400px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 420px;
-  min-height: calc(100vh - 80px); /* 🔥 دي المفتاح */
-}
-.cart-summary {
-  background: #f7f6f3;
-  padding: 96px 56px;
+/* Nav - أبيض صريح وفصلناه عن الكريمي */
+/* Nav - أبيض صريح وثابت */
+/* Nav - أبيض صريح وثابت */
+/* --- تعديل لون الناف للأبيض الصريح --- */
+.cp-nav {
+  background: #ffffff !important; /* أبيض صريح 100% */
+  border-bottom: 1px solid var(--bb-gray-line);
+  padding: 15px 0;
   position: sticky;
-  top: 80px; /* نفس navbar */
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+}
+
+/* --- تعديل الجريد عشان الـ Sticky يشتغل صح --- */
+.cp-page-grid {
+  display: flex; /* حولناه لـ flex بدل grid عشان التثبيت يظبط */
+  align-items: flex-start;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.cp-main-content {
+  flex: 1; /* ياخد باقي المساحة */
+  background: var(--bb-white);
+  padding: 60px 80px;
+  min-height: calc(100vh - 60px);
+  border-right: 1px solid var(--bb-gray-line);
+}
+
+/* --- تعديل الجنب اليمين عشان ينزل معاك --- */
+.cp-sidebar {
+  width: 450px; /* رجعنا الحجم اللي انت عايزه */
+  padding: 60px 50px;
+  position: -webkit-sticky;
+  position: sticky; 
+  top: 80px; /* هيثبت بعد 80px من فوق */
   height: fit-content;
+  align-self: flex-start;
 }
 
-.cart-left {
-  background: #ffffff;
-  padding: 64px 72px 120px;
-  border-right: 1px solid #e2e2e2;
+/* --- تعديل الصور تظهر براحتها (متتقصش) --- */
+.cp-img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain; /* ده اللي بيخلي الصورة تظهر كاملة */
+  background: #fcfcfc; /* خلفية خفيفة لو الصورة شفافة */
+}
+.cp-nav {
+  background: #ffffff; /* هنا التغيير: خليناه أبيض صريح بدل الكريمي */
+  border-bottom: 1px solid var(--bb-gray-line);
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.02); /* لمسة خفيفة عشان يفصل عن المحتوى */
 }
 
-.cart-title {
-  font-size: 42px;
-  margin-bottom: 64px;
+/* Sidebar Summary - تثبيت الجزء اليمين */
+.cp-nav-content {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 80px;
 }
 
-.cart-row {
-  display: grid;
-  grid-template-columns: 96px 1fr 100px;
-  gap: 32px;
-  padding: 32px 0;
-  border-bottom: 1px solid #e2e2e2;
-  align-items: center;
-}
-
-.cart-row img {
-  width: 96px;
-  height: 96px;
-  object-fit: cover;
-}
-
-.cart-info h3 {
-  font-size: 18px;
-  margin-bottom: 6px;
-}
-
-.cart-info span {
-  font-size: 14px;
-  color: #6e6e6e;
-}
-
-.cart-price {
-  text-align: right;
-  font-size: 14px;
-}
-
-/* MAY ALSO LIKE */
-.cart-like {
-  margin-top: 80px;
-  padding-top: 48px;
-  border-top: 1px solid #e2e2e2;
-}
-
-.cart-like h3 {
-  font-size: 26px;
-  margin-bottom: 32px;
-}
-
-.like-row {
-  display: grid;
-  grid-template-columns: 80px 1fr auto;
-  gap: 32px;
-  padding: 28px 0;
-  border-bottom: 1px solid #e2e2e2;
-  align-items: center;
-}
-
-.like-row img {
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
-}
-
-.like-row p {
-  font-size: 16px;
-  margin-bottom: 6px;
-}
-
-.like-row span {
-  font-size: 14px;
-  color: #6e6e6e;
-}
-
-.like-row button {
-  padding: 12px 28px;
-  border: 1px solid #1a1a1a;
-  background: transparent;
-  font-size: 12px;
-  letter-spacing: 0.15em;
+/* تنسيق الزرار الجديد */
+.cp-nav-back-button {
+  background: none;
+  border: none;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+  letter-spacing: 1.5px;
+  color: var(--bb-text);
+  font-weight: 500;
+  position: relative;
+  padding: 0;
+  overflow: hidden; /* عشان الحركة متبانش برا الزرار */
 }
 
-.like-row button:hover {
-  background: #1a1a1a;
-  color: #fff;
+/* حاوية النصوص */
+.text-container {
+  position: relative;
+  display: inline-block;
+  height: 28px; /* اضبط الارتفاع حسب حجم الخط */
+  min-width: 110px; /* لضمان عدم اهتزاز الزرار عند التبديل */
 }
 
-/* RIGHT */
+/* النص الافتراضي (Bleus) */
+.default-text {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 1;
+  transform: translateY(0);
+}
 
+.nav-logo-small {
+  width: 28px; /* حجم اللوجو الصغير */
+  height: 28px;
+  object-fit: contain;
+}
 
-.cart-summary h2 {
-  font-size: 26px;
+/* النص اللي بيظهر عند الهوفر (Back) */
+.hover-text {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  transform: translateY(10px); /* بيبدأ من تحت شوية */
+}
+
+/* تأثير الهوفر */
+.cp-nav-back-button:hover .default-text {
+  opacity: 0;
+  transform: translateY(-10px); /* بيطلع لفوق ويختفي */
+}
+
+.cp-nav-back-button:hover .hover-text {
+  opacity: 1;
+  transform: translateY(0); /* بيطلع لمكانه الطبيعي ويظهر */
+}
+
+/* حركة السهم */
+.cp-nav-back-button .arrow {
+  transition: transform 0.3s ease;
+}
+
+.cp-nav-back-button:hover .arrow {
+  transform: translateX(-3px); /* السهم بيتحرك سنة للشمال في الهوفر */
+}
+.cp-nav-back-btn .text {
+  position: relative;
+  padding-bottom: 2px;
+}
+
+/* الهوفر الاحترافي للرجوع */
+.cp-nav-back-btn .text::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--bb-text);
+  transition: width 0.3s ease;
+}
+
+.cp-nav-back-btn:hover .text::after {
+  width: 100%;
+}
+
+/* Layout */
+.cp-page-container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.cp-page-grid {
+  display: grid;
+  grid-template-columns: 1fr 450px; /* الجزء اليمين 450px */
+  align-items: start;              /* مهم جداً عشان الـ sticky يشتغل */
+}
+
+/* Main Content */
+.cp-main-content {
+  background: var(--bb-white);
+  padding: 60px 80px;
+  min-height: calc(100vh - 60px);
+  border-right: 1px solid var(--bb-gray-line);
+}
+
+.cp-title {
+  font-family: "Georgia", serif;
+  font-size: 42px;
+  font-weight: 400;
   margin-bottom: 40px;
 }
 
-.sum-line {
+/* Item Row */
+.cp-item-row {
   display: flex;
   justify-content: space-between;
-  font-size: 14px;
-  margin-bottom: 18px;
+  padding: 30px 0;
+  border-bottom: 1px solid var(--bb-gray-line);
 }
 
-.sum-line.muted {
-  color: #6e6e6e;
-}
-
-.sum-total {
+.cp-item-left {
   display: flex;
-  justify-content: space-between;
-  margin-top: 36px;
-  padding-top: 24px;
-  border-top: 1px solid #e2e2e2;
+  gap: 25px;
 }
 
-.cart-summary button {
-  width: 100%;
-  margin-top: 40px;
-  padding: 22px;
-  background: #4b4b4b;
-  color: #fff;
+.cp-img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+}
+
+.cp-info h3 {
+  font-size: 18px;
+  margin: 0 0 5px 0;
+  font-weight: 500;
+}
+
+.variant {
+  font-size: 12px;
+  color: #777;
+  margin-bottom: 15px;
+}
+
+/* Qty Selector */
+.bb-qty-box {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--bb-gray-line);
+  width: fit-content;
+}
+
+.bb-qty-box button {
+  background: none;
   border: none;
-  letter-spacing: 0.2em;
+  padding: 8px 15px;
   cursor: pointer;
+  font-size: 16px;
 }
 
-.cart-summary button:hover {
-  background: #222;
+.bb-qty-box span {
+  width: 30px;
+  text-align: center;
+  font-size: 14px;
 }
 
-/* MOBILE */
-@media (max-width: 900px) {
-  .cart-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .cart-summary {
-    position: static;
-  }
-
-  .cart-price {
-    display: none;
-  }
+.cp-item-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
 }
- 
+
+.price {
+  font-size: 16px;
+}
+
+.remove-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #999;
+  transition: color 0.3s;
+}
+
+.remove-btn:hover {
+  color: #333;
+}
+
+/* --- سكشن You May Also Like (الجديد) --- */
+.cart-like-section {
+  margin-top: 80px;
+  padding-top: 40px;
+  border-top: 1px solid var(--bb-gray-line);
+}
+
+.like-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.like-head h4 {
+  font-family: "Georgia", serif;
+  font-size: 24px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.like-arrows button {
+  background: none;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+  line-height: 1;
+  color: #ccc;
+  transition: color 0.3s;
+}
+
+.like-arrows button:not(:disabled):hover {
+  color: var(--bb-dark);
+}
+
+.like-track {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.like-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.like-img-wrapper {
+  background: var(--bb-light-gray);
+  padding: 15px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.like-card img {
+  width: 100%;
+  height: 140px;
+  object-fit: contain;
+}
+
+.like-meta {
+  margin-bottom: 15px;
+  flex-grow: 1;
+}
+
+.like-title {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0 0 5px 0;
+}
+
+.like-price {
+  font-size: 13px;
+  color: #666;
+}
+
+/* زر الـ Add اللي في السلايدر */
+.like-add-btn {
+  width: 100%;
+  padding: 12px;
+  background: transparent;
+  border: 1px solid var(--bb-dark);
+  font-size: 11px;
+  letter-spacing: 1px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.like-add-btn:hover {
+  background: var(--bb-dark);
+  color: white;
+}
+
+/* Buttons */
+.cp-btn-primary {
+  width: 100%;
+  padding: 22px;
+  background: var(--bb-dark);
+  color: white;
+  border: none;
+  font-size: 12px;
+  letter-spacing: 2px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 30px;
+  transition: opacity 0.3s;
+}
+
+.cp-btn-primary:hover {
+  opacity: 0.9;
+}
+
+/* زر الـ Return to Shop الكبير اللي تحت */
+.cp-btn-secondary {
+  padding: 18px 45px;
+  background: var(--bb-dark);
+  color: white;
+  border: none;
+  font-size: 12px;
+  letter-spacing: 2px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 40px;
+}
+
+.cp-sidebar {
+  padding: 60px 50px;
+  position: sticky; /* يخليه يثبت وأنت بتعمل سكرول */
+  top: 80px;        /* مسافة من فوق عشان م يخبطش في الناف */
+  height: fit-content;
+  align-self: start; 
+}
+
+.shipping-status {
+  margin-bottom: 40px;
+}
+
+.status-text {
+  font-size: 11px;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.progress-track {
+  height: 4px;
+  background: #e6e6e6;
+  width: 100%;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--bb-blue);
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.summary-hd {
+  font-family: "Georgia", serif;
+  font-size: 24px;
+  margin-bottom: 30px;
+  font-weight: 400;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  margin-bottom: 15px;
+}
+
+.total {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid var(--bb-gray-line);
+  font-size: 16px;
+}
+
+.summary-links {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+.link-hover-effect {
+  background: none;
+  border: none;
+  font-size: 11px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  color: var(--bb-text);
+  transition: color 0.3s;
+}
+
+.link-hover-effect:hover {
+  color: #000;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .cp-page-grid { grid-template-columns: 1fr; }
+  .cp-main-content { padding: 40px 20px; border-right: none; }
+  .cp-nav-content { padding: 0 20px; }
+  .like-track { grid-template-columns: 1fr 1fr; }
+}
