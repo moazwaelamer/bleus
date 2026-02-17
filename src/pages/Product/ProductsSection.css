@@ -95,11 +95,12 @@ html, body {
 
 .section-title {
   text-align: center;
-  font-size: 32px;
-  font-weight: 700;
+  font-size: 28px;
+  font-weight: 600;
   color: var(--blue-main);
+   letter-spacing: 2px;
+   margin-bottom: 60px;
   margin-bottom: 50px;
-  letter-spacing: 1px;
 }
 
 /* ================= SLICK ================= */
