@@ -57,21 +57,26 @@ export default function CategoryPage() {
             <h1>{slug?.replace(/-/g, " ").toUpperCase()}</h1>
           </div>
 
-          <div className="products-grid">
-            {categoryProducts.map((item) => (
-              <Link key={item.id} to={`/product/${item.id}`} className="product-link">
-                <div className="product-card">
-                  <div className="product-image-box">
-                    <img src={item.image} alt={item.title} loading="lazy" />
-                  </div>
-                  <div className="product-card-info">
-                    <h3>{item.title}</h3>
-                    <span>{item.price} EGP</span>
-                  </div>
-                </div>
-              </Link>
-            ))}
+        <div className="products-grid">
+  {categoryProducts.length === 0 ? (
+    <p className="empty-category">No products found</p>
+  ) : (
+    categoryProducts.map((item) => (
+      <Link key={item.id} to={`/product/${item.id}`} className="product-link">
+        <div className="product-card">
+          <div className="product-image-box">
+            <img src={item.image} alt={item.title} />
           </div>
+          <div className="product-card-info">
+            <h3>{item.title}</h3>
+            <span>{item.price} EGP</span>
+          </div>
+        </div>
+      </Link>
+    ))
+  )}
+</div>
+
         </div>
       </div>
     </section>
