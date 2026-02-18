@@ -18,8 +18,8 @@
 .cart-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(46, 74, 125, 0.25);
-  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.5); /* لون سادة أضمن للأداء */
+  backdrop-filter: none !important;
   z-index: 3000;
 }
 .free-ship .bar span {
@@ -46,6 +46,9 @@
   padding: 48px;
   font-family: "Inter", sans-serif;
   color: var(--bb-text);
+  will-change: transform;
+  transform: translate3d(100%, 0, 0); /* يبدأ من بره الشاشة */
+  backface-visibility: hidden;
 }
 
 /* ================= HEADER ================= */

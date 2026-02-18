@@ -1,4 +1,4 @@
-import { useRef, useLayoutEffect, useState } from "react";
+import { useRef, useLayoutEffect } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import "./videoSection.css";
@@ -8,8 +8,6 @@ gsap.registerPlugin(ScrollTrigger);
 export default function VideoSection() {
   const videoRef = useRef(null);
   const sectionRef = useRef(null);
-  const [soundOn, setSoundOn] = useState(false);
-  const [ready, setReady] = useState(false);
 
   useLayoutEffect(() => {
     const video = videoRef.current;
@@ -17,87 +15,39 @@ export default function VideoSection() {
 
     if (!video || !section) return;
 
+    // إعدادات البداية لضمان عمل الـ Autoplay على الموبايل
     video.muted = true;
-    video.volume = 0;
+    video.setAttribute("muted", ""); // تأكيد للـ HTML
     video.playsInline = true;
-
-    const onReady = () => setReady(true);
-    video.addEventListener("canplay", onReady);
+    video.setAttribute("playsinline", "");
 
     const trigger = ScrollTrigger.create({
       trigger: section,
-      start: "top 70%",
-      end: "bottom 30%",
-
-      onEnter: () => {
-        if (!ready) return;
-
-        video.play().catch(() => {});
-
-        if (soundOn) {
-          video.muted = false;
-          gsap.to(video, { volume: 1, duration: 0.4 });
-        }
-      },
-
-      onEnterBack: () => {
-        if (!ready) return;
-
-        video.play().catch(() => {});
-
-        if (soundOn) {
-          video.muted = false;
-          gsap.to(video, { volume: 1, duration: 0.4 });
-        }
-      },
-
-      onLeave: () => {
-        video.pause();
-        video.muted = true;
-        video.volume = 0;
-      },
-
-      onLeaveBack: () => {
-        video.pause();
-        video.muted = true;
-        video.volume = 0;
-      },
+      start: "top 80%", // هيبدأ يشتغل اول ما يقرب من السكشن
+      end: "bottom 20%",
+      onEnter: () => video.play(),
+      onEnterBack: () => video.play(),
+      onLeave: () => video.pause(),
+      onLeaveBack: () => video.pause(),
     });
 
     return () => {
       trigger.kill();
-      video.removeEventListener("canplay", onReady);
     };
-  }, [ready, soundOn]);
-
-  const toggleSound = () => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    if (soundOn) {
-      gsap.to(video, {
-        volume: 0,
-        duration: 0.4,
-        onComplete: () => (video.muted = true),
-      });
-    } else {
-      video.muted = false;
-      video.play();
-      gsap.to(video, { volume: 1, duration: 0.6 });
-    }
-
-    setSoundOn(!soundOn);
-  };
+  }, []);
 
   return (
     <section className="video-section" id="video" ref={sectionRef}>
-      <video ref={videoRef} loop preload="auto">
+      <video 
+        ref={videoRef} 
+        loop 
+        muted 
+        playsInline 
+        preload="metadata" // "metadata" أخف بكتير من "auto" في التحميل
+        poster="/assest/video-fallback.jpg" // صورة تظهر لو الفيديو اتأخر في التحميل
+      >
         <source src="/assest/bleu.mp4" type="video/mp4" />
       </video>
-
-      <button className="sound-toggle" onClick={toggleSound}>
-        {soundOn ? "🔊" : "🔇"}
-      </button>
     </section>
   );
 }

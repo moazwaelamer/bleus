@@ -90,7 +90,10 @@ const progress = Math.min(
         initial={{ x: "100%" }}
         animate={{ x: 0 }}
         exit={{ x: "100%" }}
-        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] ,damping: 28,   // بيمنع الارتداد الزيادة
+    stiffness: 250, // بيخلي الحركة سريعة ومستجيبة
+    mass: 0.5}}
+        
       >
         {/* HEADER */}
         <header className="cart-head">

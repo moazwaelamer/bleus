@@ -6,50 +6,13 @@ import "./category.css";
 
 // ===== DATA =====
 export const categories = [
-  {
-    id: 1,
-    title: "HOT DRINKS",
-    slug: "hot-drinks",
-    subtitle: "Crafted with Passion",
-    image: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=900",
-  },
-  {
-    id: 2,
-    title: "COLD DRINKS",
-    slug: "cold-drinks",
-    subtitle: "Cold & Refreshing",
-    image: "https://images.unsplash.com/photo-1510626176961-4b37d6f1c63f?w=900",
-  },
-  {
-    id: 3,
-    title: "ESPRESSO BAR",
-    slug: "espresso-bar",
-    subtitle: "Strong & Bold",
-    image: "https://images.unsplash.com/photo-1587202372775-e229f172b9d4?w=900",
-  },
-  {
-    id: 4,
-    title: "MATCHA",
-    slug: "matcha",
-    subtitle: "Green Energy",
-    image: "https://images.unsplash.com/photo-1507914372368-b2b085b925a1?w=900",
-  },
-  {
-    id: 5,
-    title: "DESSERTS",
-    slug: "desserts",
-    subtitle: "Sweet Moments",
-    image: "https://images.unsplash.com/photo-1523362628745-0c100150b7a1?w=900",
-  },
-  {
-    id: 6,
-    title: "BREAKFAST",
-    slug: "breakfast",
-    subtitle: "Perfect Start",
-    image: "https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?w=900",
-  },
+  { id: 1, title: "HOT DRINKS", slug: "hot-drinks", subtitle: "Crafted with Passion", image: "https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&q=80&w=900&h=1200" },
+  { id: 2, title: "NON COFFEE", slug: "non-coffee", subtitle: "Delicious Alternatives", image: "https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&q=80&w=900&h=1200" },
+  { id: 3, title: "MATCHA LOVERS", slug: "matcha", subtitle: "Green Energy", image: "https://images.unsplash.com/photo-1515823064-d6e0c04616a7?auto=format&fit=crop&q=80&w=900&h=1200" },
+  { id: 4, title: "SUMMERIE DRINKS", slug: "summerie", subtitle: "Refreshing Vibes", image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&q=80&w=900&h=1200" },
+  { id: 5, title: "LEMONADES", slug: "lemonades", subtitle: "Zesty & Fresh", image: "https://images.unsplash.com/photo-1523362628745-0c100150b7a1?auto=format&fit=crop&q=80&w=900&h=1200" },
+  { id: 6, title: "BLENDED DRINKS", slug: "blended", subtitle: "Thick & Sweet", image: "https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&q=80&w=900&h=1200" }
 ];
-
 // ===== 1️⃣ CATEGORIES =====
 export function Categories() {
   const navigate = useNavigate();

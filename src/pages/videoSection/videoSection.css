@@ -10,13 +10,12 @@ html, body {
 /* ===== VIDEO SECTION ===== */
 .video-section {
   position: relative;
-  height: calc(100vh - 70px);
+  height: 100vh; /* خليه 100vh مباشرة أسهل */
   width: 100%;
   overflow: hidden;
   background: #000;
   z-index: 1;
-  /* بيمنع أي حاجة جوه السكشن تطلع براه وتلغوش على الـ Nav */
-  contain: paint; 
+  contain: strict; /* أقوى من paint وبتحسن الأداء جداً */
 }
 
 .video-section video {
@@ -24,9 +23,9 @@ html, body {
   height: 100%;
   object-fit: cover;
   display: block;
-  /* GPU Acceleration */
-  transform: translate3d(0, 0, 0);
+  /* بيخلي الرندر يعتمد على كارت الشاشة */
   will-change: transform;
+  pointer-events: none; /* عشان الموبايل ميفهمش إنك بتدوس على الفيديو */
 }
 
 /* ===== SOUND BUTTON ===== */
