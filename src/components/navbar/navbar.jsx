@@ -142,17 +142,17 @@ export default function Navbar() {
             {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
           </button>
 
-          {currentUser ? (
-            <div className="user-name" onClick={() => setAccountOpen(!accountOpen)}>
-              <span className="username-text">Hi {currentUser.username}</span>
-              <span className="blue-heart">💙</span>
-            </div>
-          ) : (
-            <button className="icon-btn" onClick={() => setOpenLogin(true)}>
-              <UserIcon />
-            </button>
-          )}
-
+        {/* البحث عن هذا الجزء داخل ملف الـ JSX واستبداله */}
+{currentUser ? (
+  <div className="user-name" onClick={() => setAccountOpen(!accountOpen)}>
+    <span className="username-text">{currentUser.username}</span>
+    {/* تم حذف كلمة Hi وحذف الـ span الخاص بالقلب */}
+  </div>
+) : (
+  <button className="icon-btn" onClick={() => setOpenLogin(true)}>
+    <UserIcon />
+  </button>
+)}
           <AnimatePresence>
             {accountOpen && currentUser && (
               <motion.div

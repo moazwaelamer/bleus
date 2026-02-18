@@ -218,18 +218,24 @@ background: rgba(255, 255, 255, 0.98);
 .username-text {
   font-size: 15px;   /* الاسم طبيعي */
 }
+/* تنسيق اسم المستخدم العام */
 .user-name {
   font-size: 14px;
-  font-weight: 500;
-  padding: 6px 14px;
-  border-radius: 8px;
+  font-weight: 600; /* جعلته أسمك قليلاً ليبرز */
+  padding: 6px 12px;
+  border-radius: 20px; /* شكل بيضاوي أشيك */
   cursor: pointer;
-    gap: 6px;     
-  transition: background 0.25s ease;
+  background: var(--pink-soft); /* خلفية هادئة */
+  color: var(--blue-main);
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
 }
 
 .user-name:hover {
-  background: var(--pink-soft);
+  background: var(--pink-hover);
+  transform: translateY(-1px);
 }
 
 /* DROPDOWN */
@@ -406,18 +412,16 @@ background: rgba(255, 255, 255, 0.98);
   }
   /* إظهار الاسم "Hi moaz" بشياكة */
   .username-text {
-    display: none !important; /* رجعناه يظهر */
-    font-size: 11px; /* صغرنا الخط عشان ميزقش الأيقونات */
-    white-space: nowrap; /* عشان ميكسرش سطرين */
-    max-width: 50px; /* ليميت للاسم */
+    display: block !important; /* التأكد من ظهوره */
+    font-size: 11px;
+    max-width: 60px; /* تحديد أقصى عرض للاسم */
     overflow: hidden;
-    text-overflow: ellipsis; /* لو الاسم طويل يحط نقط */
-    color: var(--blue-main);
+    text-overflow: ellipsis; /* لو الاسم طويل جداً يظهر نقاط */
   }
+
   .user-name {
-    padding: 4px 8px;
-    background: var(--pink-soft);
-    border-radius: 20px;
+    padding: 4px 10px;
+    margin-right: 2px;
   }
   .blue-heart {
     display: none; /* أخفينا القلب عشان مايشوش */
@@ -554,3 +558,6 @@ background: rgba(255, 255, 255, 0.98);
   display: inline-block;
   will-change: transform;
 }
+.nav-icons .icon-btn:first-child {
+    display: none; 
+  }
