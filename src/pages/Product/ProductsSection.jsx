@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+
 import { ShoppingBag } from "lucide-react"; 
 import { products } from "./products"; 
 import "./ProductsSection.css";
 
 export default function ProductsSection() {
-  const navigate = useNavigate();
+ 
   const [active, setActive] = useState(0);
   const [toast, setToast] = useState(""); // إضافة الـ state الخاص بالـ toast
 
