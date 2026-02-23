@@ -1,0 +1,166 @@
+/* ================= Variables ================= */
+:root {
+  --bg: #f6f2ed;
+  --blue: #0a2a52;
+  --text-dark: #1e1e1e;
+  --text-muted: #7a7a7a;
+  --cream: #fdfcf8;
+}
+
+/* ================= Section ================= */
+.memories-section {
+  background: var(--bg);
+  padding: 120px 0;
+  overflow: hidden;
+}
+
+.memories-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 24px;
+}
+
+/* ================= Header ================= */
+.memories-header {
+  text-align: center;
+  max-width: 600px;
+  margin: auto;
+  margin-bottom: 80px;
+}
+
+.memories-header .eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 10px;
+}
+
+.memories-header h2 {
+  font-family: serif;
+  font-size: 48px;
+  margin-bottom: 15px;
+  color: var(--text-dark);
+}
+
+.memories-header p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* ================= Grid ================= */
+.memories-grid {
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+  gap: 24px;
+  margin-bottom: 80px;
+}
+
+.memory-right {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ================= Cards ================= */
+.memory-card {
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+.memory-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s ease;
+}
+
+.zoom:hover img {
+  transform: scale(1.08);
+}
+
+.big img {
+  aspect-ratio: 4 / 3;
+}
+
+/* ================= Quote ================= */
+.quote-card {
+  background: var(--blue);
+  padding: 40px;
+}
+
+.quote-card p {
+  font-family: serif;
+  font-size: 26px;
+  color: var(--cream);
+  font-style: italic;
+  line-height: 1.4;
+  margin-bottom: 16px;
+}
+
+.quote-card span {
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+}
+
+/* ================= Stats ================= */
+.memories-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  border-top: 1px solid #ddd;
+  padding-top: 60px;
+  text-align: center;
+}
+
+.memories-stats h3 {
+  font-family: serif;
+  font-size: 48px;
+  color: var(--text-dark);
+}
+
+.memories-stats p {
+  font-size: 13px;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* ================= Animations ================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: 0.9s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.delay-1 { transition-delay: 0.15s; }
+.delay-2 { transition-delay: 0.3s; }
+.delay-3 { transition-delay: 0.45s; }
+.delay-4 { transition-delay: 0.6s; }
+
+/* ================= Responsive ================= */
+@media (max-width: 900px) {
+  .memories-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .quote-card p {
+    font-size: 22px;
+  }
+
+  .memories-header h2 {
+    font-size: 38px;
+  }
+
+  .memories-stats h3 {
+    font-size: 36px;
+  }
+}

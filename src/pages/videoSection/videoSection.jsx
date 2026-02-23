@@ -15,18 +15,22 @@ export default function VideoSection() {
 
     if (!video || !section) return;
 
-    // إعدادات البداية لضمان عمل الـ Autoplay على الموبايل
+    // إعدادات إلزامية للـ autoplay
     video.muted = true;
-    video.setAttribute("muted", ""); // تأكيد للـ HTML
     video.playsInline = true;
+    video.setAttribute("muted", "");
     video.setAttribute("playsinline", "");
+
+    const safePlay = () => {
+      video.play().catch(() => {});
+    };
 
     const trigger = ScrollTrigger.create({
       trigger: section,
-      start: "top 80%", // هيبدأ يشتغل اول ما يقرب من السكشن
+      start: "top 80%",
       end: "bottom 20%",
-      onEnter: () => video.play(),
-      onEnterBack: () => video.play(),
+      onEnter: safePlay,
+      onEnterBack: safePlay,
       onLeave: () => video.pause(),
       onLeaveBack: () => video.pause(),
     });
@@ -38,13 +42,13 @@ export default function VideoSection() {
 
   return (
     <section className="video-section" id="video" ref={sectionRef}>
-      <video 
-        ref={videoRef} 
-        loop 
-        muted 
-        playsInline 
-        preload="metadata" // "metadata" أخف بكتير من "auto" في التحميل
-        poster="/assest/video-fallback.jpg" // صورة تظهر لو الفيديو اتأخر في التحميل
+      <video
+        ref={videoRef}
+        loop
+        muted
+        playsInline
+        preload="metadata"
+        poster="/assest/video-fallback.jpg"
       >
         <source src="/assest/bleu.mp4" type="video/mp4" />
       </video>

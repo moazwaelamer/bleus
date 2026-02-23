@@ -1,0 +1,182 @@
+/* Intro Screen Container */
+.intro-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #FAF9F6 0%, #F5F5F0 100%);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.intro-screen.fade-out {
+  opacity: 0;
+}
+
+/* Scene Container */
+.intro-scene {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Man Walking Animation */
+.man-walking {
+  animation: walkIn 2.8s ease-in-out forwards;
+  filter: blur(8px);
+  opacity: 0;
+  transform: translateX(-100vw) scale(0.6);
+}
+
+@keyframes walkIn {
+  0% {
+    transform: translateX(-100vw) scale(0.6);
+    filter: blur(8px);
+    opacity: 0;
+  }
+  40% {
+    transform: translateX(-20vw) scale(0.75);
+    filter: blur(4px);
+    opacity: 0.7;
+  }
+  70% {
+    transform: translateX(0) scale(0.85);
+    filter: blur(1px);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateX(0) scale(1);
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+
+/* Signboard Animation */
+.signboard {
+  animation: signClarify 2.8s ease-in-out forwards;
+  opacity: 0.3;
+  transform-origin: center;
+}
+
+@keyframes signClarify {
+  0% {
+    opacity: 0.2;
+    transform: scale(0.9);
+  }
+  60% {
+    opacity: 0.5;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Sign Text Animation */
+.sign-text {
+  animation: textReveal 2.8s ease-in-out forwards;
+  opacity: 0;
+}
+
+@keyframes textReveal {
+  0% {
+    opacity: 0;
+    letter-spacing: 8px;
+  }
+  50% {
+    opacity: 0.3;
+    letter-spacing: 6px;
+  }
+  100% {
+    opacity: 1;
+    letter-spacing: 4px;
+  }
+}
+
+/* Shadow Animation */
+.shadow {
+  animation: shadowGrow 2.8s ease-in-out forwards;
+  opacity: 0;
+}
+
+@keyframes shadowGrow {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 0.1;
+    transform: scale(1);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .man-walking svg {
+    width: 150px;
+    height: 300px;
+  }
+  
+  @keyframes walkIn {
+    0% {
+      transform: translateX(-100vw) scale(0.5);
+      filter: blur(6px);
+      opacity: 0;
+    }
+    40% {
+      transform: translateX(-10vw) scale(0.65);
+      filter: blur(3px);
+      opacity: 0.7;
+    }
+    70% {
+      transform: translateX(0) scale(0.75);
+      filter: blur(1px);
+      opacity: 0.9;
+    }
+    100% {
+      transform: translateX(0) scale(0.85);
+      filter: blur(0);
+      opacity: 1;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .man-walking svg {
+    width: 120px;
+    height: 240px;
+  }
+  
+  @keyframes walkIn {
+    0% {
+      transform: translateX(-100vw) scale(0.4);
+      filter: blur(5px);
+      opacity: 0;
+    }
+    40% {
+      transform: translateX(-5vw) scale(0.55);
+      filter: blur(2px);
+      opacity: 0.7;
+    }
+    70% {
+      transform: translateX(0) scale(0.65);
+      filter: blur(1px);
+      opacity: 0.9;
+    }
+    100% {
+      transform: translateX(0) scale(0.7);
+      filter: blur(0);
+      opacity: 1;
+    }
+  }
+}

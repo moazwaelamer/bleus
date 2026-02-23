@@ -1,233 +1,260 @@
 :root {
   --blue-main: #2E4A7D;
-  --pink-soft: #F3D6E3;
-  --pink-hover: #EBC2D4;
-  --text-dark: #1e1e1e;
-  --shadow: 0 20px 40px rgba(46, 74, 125, 0.07);
+  --blue-dark: #243b63;
+  --pink-soft: #f8f0f4;
+  --white: #ffffff;
+  --shadow-soft: 0 10px 30px rgba(46, 74, 125, 0.08);
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
-body { background-color: #fafbfe; font-family: 'Inter', sans-serif; }
-
+/* ================= الأساس ================= */
 .product-view {
-  padding-top: 160px; /* نزلنا بداية الصفحة كلها عشان الزرار والمحتوى */
+  padding-top: 140px;
   padding-bottom: 60px;
-  background: linear-gradient(135deg, #fdfbff, var(--pink-soft));
+  background: linear-gradient(180deg, var(--white) 0%, var(--pink-soft) 100%);
   min-height: 100vh;
   display: flex;
-  justify-content: center;
-  position: relative;
+  flex-direction: column;
+  align-items: center;
 }
-.brand-header {
-  position: absolute;
-  top: 100px; /* نزلناه هنا */
-  left: 5%;
-  z-index: 1000;
-}
+
+/* زر الرجوع */
 .cp-nav-back-button {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   background: #fff;
-  border: 1px solid rgba(46, 74, 125, 0.1);
-  padding: 10px 20px;
+  border: 2px solid var(--blue-main);
+  padding: 10px 22px;
   border-radius: 50px;
+  position: absolute;
+  right: 60%;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-  font-weight: 600;
+  transition: 0.3s;
+  font-weight: 800;
   color: var(--blue-main);
 }
 
 .cp-nav-back-button:hover {
-  transform: translateX(-5px);
   background: var(--blue-main);
   color: #fff;
+  transform: translateX(-5px);
 }
 
-.nav-logo-small { width: 22px; height: 22px; border-radius: 50%; }
-
-/* الحاوية الأساسية للمحتوى */
+/* ================= الحاوية ================= */
 .product-container {
   display: flex;
   width: 90%;
-  max-width: 1200px;
+  max-width: 1100px;
   gap: 50px;
-  align-items: flex-start;
 }
 
-/* السايد بار (Desktop) */
+/* ================= Sidebar Desktop ================= */
 .product-sidebar {
   width: 220px;
   flex-shrink: 0;
-  border-right: 1px solid rgba(46, 74, 125, 0.08);
-  padding-right: 20px;
-  margin-top: 20px;
+  border-right: 1px solid rgba(46, 74, 125, 0.1);
 }
 
 .product-sidebar h3 {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: var(--blue-main);
-  opacity: 0.5;
-  margin-bottom: 25px;
-}
-
-.product-sidebar ul { list-style: none; }
-.product-sidebar li { margin-bottom: 15px; }
-.product-sidebar a {
-  text-decoration: none;
-  color: #666;
-  font-size: 14px;
-  transition: 0.3s ease;
-  display: block;
-}
-
-.product-sidebar a:hover, 
-.product-sidebar a.active {
+  font-size: 18px;
   color: var(--blue-main);
   font-weight: 700;
-  padding-left: 10px;
+  left: 50%;
+  margin-bottom: 20px;
+}
+.product-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-/* منطقة تفاصيل المنتج */
+.sidebar-link {
+  text-decoration: none;
+  color: #8C8C8C;
+  font-size: 15px;
+  display: block;
+  margin-bottom: 15px;
+  transition: 0.3s;
+}
+
+.sidebar-link.active {
+  color: var(--blue-main);
+  font-weight: 800;
+}
+
+/* ================= تفاصيل المنتج ================= */
 .product-details {
   flex: 1;
   display: flex;
-  gap: 60px;
-  align-items: center; /* سنترة الصورة مع الكلام بالجنب */
-  background: rgba(255, 255, 255, 0.3);
-  padding: 40px;
-  border-radius: 40px;
-  backdrop-filter: blur(10px);
+  align-items: center;
+  gap: 40px;
 }
 
-.product-image { flex: 1; max-width: 450px; }
 .product-image img {
   width: 100%;
-  height: auto;
+  max-width: 420px;
   border-radius: 30px;
-  box-shadow: var(--shadow);
-  transition: transform 0.5s ease;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.1);
 }
 
-.product-info { flex: 1; }
 .product-info h1 {
-  font-size: 48px;
+  font-size: 45px;
   color: var(--blue-main);
-  line-height: 1.1;
+  font-weight: 900;
   margin-bottom: 10px;
 }
 
-.product-info h3 {
-  font-size: 24px;
-  color: rgba(46, 74, 125, 0.7);
-  margin-bottom: 20px;
-}
-
-.product-info p {
+.text-container {
   font-size: 16px;
-  line-height: 1.7;
-  color: #555;
-  margin-bottom: 35px;
+  line-height: 1.6;
 }
 
-/* زرار إضافة للسلة */
 .add-to-cart {
-  padding: 18px 50px;
-  font-size: 16px;
-  font-weight: 700;
-  border-radius: 100px;
-  border: none;
+  padding: 18px 45px;
   background: var(--blue-main);
-  color: #fff;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 700;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 10px 30px rgba(46, 74, 125, 0.2);
+  box-shadow: 0 10px 20px rgba(46, 74, 125, 0.2);
+  transition: 0.3s;
 }
 
 .add-to-cart:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(46, 74, 125, 0.3);
+  transform: translateY(-3px);
 }
 
-/* ================= الموبايل (التظبيط النهائي والمضغوط) ================= */
+/* ================= Mobile ================= */
 @media (max-width: 992px) {
-  .product-view { 
-    padding-top: 70px !important; /* قللنا الفراغ اللي فوق خالص */
-    flex-direction: column;
-  }
-  
-  .brand-header { 
-    position: absolute; 
-    top: 100px; /* رفعنا زرار الـ Back سيكة */
-    left: 10px; 
-    z-index: 1100;
-    transform: scale(0.85); /* صغرنا الزرار نفسه شوية عشان مياكلش مساحة */
+
+  .product-view {
+    padding-top: 70px;   /* تحت الناف بار */
+    padding-bottom: 20px;
   }
 
   .product-container {
     flex-direction: column;
     width: 100%;
-    margin-top: 40px; /* قربنا المحتوى من الزرار */
-    gap: 0;
+    gap: 10px;
   }
 
+  /* Sidebar → Chips */
   .product-sidebar {
-    width: 100% !important;
-    position: relative;
-    padding: 5px 15px !important; /* ضغطنا السايد بار */
-    margin-bottom: 5px;
-  }
-
-  .product-sidebar h3 {
-    font-size: 9px !important; /* صغرنا كلمة OTHER PRODUCTS */
-    margin-bottom: 5px !important;
-    margin-left: 5px;
+    width: 100%;
+    border: none;
+    padding-bottom: 15px;
   }
 
   .product-sidebar ul {
-    gap: 8px;
-    padding-bottom: 10px;
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 0 20px 10px;
+    scrollbar-width: none;
+    scroll-snap-type: x mandatory;
   }
 
-  .product-sidebar a {
-    padding: 5px 12px !important; /* صغرنا حجم الزراير (Chips) */
-    font-size: 11px !important;
+  .product-sidebar ul::-webkit-scrollbar {
+    display: none;
   }
 
+  .sidebar-link {
+    background: var(--white);
+    border: 1px solid #eee;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 13px;
+    margin-bottom: 0;
+    white-space: nowrap;
+    color: var(--blue-main);
+    scroll-snap-align: start;
+  }
+
+  .sidebar-link.active {
+    background: var(--blue-main);
+    color: var(--white);
+    border-color: var(--blue-main);
+  }
+
+  /* تفاصيل المنتج */
   .product-details {
-    flex-direction: column !important;
-    padding: 0 15px !important;
-    gap: 15px !important; /* قللنا المسافة بين الصورة والكلام */
+    flex-direction: column;
+    padding: 0 20px;
+    text-align: center;
+    width: 100%;
   }
 
   .product-image {
     width: 100%;
-    max-width: 240px; /* صغرنا حجم الصورة عشان ترفع لفوق وتبان */
-    margin: 0 auto;
+    max-width: 320px;
+    margin-bottom: 20px;
   }
 
   .product-image img {
-    border-radius: 15px;
-    max-height: 250px; /* حددنا طول للصورة عشان متسرحش */
-    object-fit: cover;
+    border-radius: 25px;
   }
 
   .product-info h1 {
-    font-size: 26px !important; /* صغرنا اسم المنتج */
-    margin-bottom: 5px;
-  }
-
-  .product-info h3 {
-    font-size: 18px !important; /* صغرنا السعر */
-    margin-bottom: 10px;
+    font-size: 34px;
+    margin-top: 10px;
   }
 
   .add-to-cart {
-    padding: 12px 30px !important; /* صغرنا زرار الإضافة للسلة */
-    font-size: 14px;
+    width: 100%;
+    max-width: 340px;
+    padding: 18px;
+    font-size: 17px;
+    border-radius: 15px;
+    margin-top: 10px;
   }
+}
+
+/* ================= زر الرجوع Animation ================= */
+.text-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 80px;
+  height: 24px;
+}
+
+.default-text {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: 0.3s ease-in-out;
+}
+
+.nav-logo-small {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.hover-text {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: 0.3s ease-in-out;
+  white-space: nowrap;
+  letter-spacing: 1px;
+}
+
+.cp-nav-back-button:hover .default-text {
+  opacity: 0;
+  transform: translateY(-5px);
+}
+
+.cp-nav-back-button:hover .hover-text {
+  opacity: 1;
+  color: #fff;
+}
+
+.cp-nav-back-button:hover .nav-back-arrow {
+  stroke: #fff;
 }

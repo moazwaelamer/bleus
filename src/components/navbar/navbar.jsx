@@ -202,11 +202,15 @@ export default function Navbar() {
       <div className="menu-content">
         <div className="menu-left">
           {[
-            { name: "Home", id: "hero" },
-            { name: "Collections", id: "categories-section" },
-            { name: "Experience", id: "video" },
-            { name: "Products", id: "products-section" },
-            { name: "Contact", id: "footer" },
+           
+  { name: "Home", id: "hero" },
+  { name: "Collections", id: "categories" },
+  { name: "Experience", id: "video" },
+  { name: "Products", id: "products" },
+  { name: "Our Story", id: "about" },
+  { name: "Memories", id: "memories" },
+  { name: "Contact", id: "footer" },
+
           ].map((item, index) => (
             <motion.a
               key={item.id}

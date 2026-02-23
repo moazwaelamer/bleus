@@ -1,267 +1,284 @@
 :root {
-  --blue-main: #2E4A7D;
-  --pink-soft: #F3D6E3;
-  --pink-hover: #EBC2D4;
-  --text-dark: #1e1e1e;
-}
-/* ================= SINGLE PRODUCT FOCUS ================= */
-
-/* تظبيط الـ Dots عشان تبقى شيك */
-.center-slider .slick-dots {
-  bottom: -40px;
-}
-.center-slider .slick-dots li button:before {
-  color: var(--blue-main);
-  font-size: 10px;
-  opacity: 0.2;
-}
-.center-slider .slick-dots li.slick-active button:before {
-  color: var(--blue-main);
-  opacity: 1;
+  --blue-deep: #0B2B5B;
+  --text-gray: #8C8C8C;
+  --bg-light: #F7F7F7;
+  --white: #ffffff;
 }
 
-@media (max-width: 768px) {
-  .products-section .inner {
-    padding: 0 15px; /* تقليل الحواف الجانبية */
-  }
-
-  .product-slide {
-  background: #ffffff;
-  border-radius: 20px;
-  padding: 20px;
-  text-align: center;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  cursor: pointer;
-  border: 1px solid rgba(0,0,0,0.03);
-  margin: 15px; /* مسافة بين الكروت */
+.best-sellers-section {
+  padding: 80px 0;
+  background-color: var(--bg-light);
+  font-family: 'serif', 'Arial', sans-serif;
 }
 
-  .product-slide img {
-    height: 350px !important; /* زودنا الارتفاع عشان الصورة "تاخد حقها" */
-    width: 100%;
-    object-fit: cover;
-    border-radius: 20px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1); /* الظل على الصورة بس */
-    margin-bottom: 25px;
-  }
-
-  .product-slide h3 {
-    font-size: 24px; /* كبرنا الخط */
-    font-weight: 700;
-    color: var(--blue-main);
-    margin-bottom: 15px;
-  }
-
-  .product-slide button {
-    width: 100%; /* الزرار ياخد العرض كله في الموبايل بيبقى أسهل في الدوس */
-    padding: 15px;
-    font-size: 14px;
-    letter-spacing: 2px;
-    background: var(--blue-main);
-    color: #fff;
-    border-radius: 15px;
-  }
-}
-/* ================= SECTION ================= */
-.products-section {
- padding: 90px 0;
-  background: var(--bg-soft);
-  overflow: hidden;
-}
-section {
-  width: 100%;
-  position: relative;
-  overflow: hidden;
-}
-html, body {
-  overflow-x: hidden;
-}
-
-.products-section {
-  padding: 90px 0;
- background: linear-gradient(
-  180deg,
-  #ffffff 0%,
-  rgba(243, 214, 227, 0.35) 100%
-);
-}
-
-/* Container حقيقي زي Nespresso */
-.products-section .inner {
-  max-width: 1200px;     /* 👈 يمنع الفراغات */
+.inner {
+  max-width: 1100px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
-.section-title {
+/* Header */
+.section-header {
   text-align: center;
-  font-size: 28px;
-  font-weight: 600;
-  color: var(--blue-main);
-   letter-spacing: 2px;
-   margin-bottom: 60px;
   margin-bottom: 50px;
 }
 
-/* ================= SLICK ================= */
-.center-slider .slick-list {
-  overflow: visible;
+.section-header .subtitle {
+  font-size: 11px;
+  letter-spacing: 4px;
+  color: var(--text-gray);
+  text-transform: uppercase;
+  margin-bottom: 10px;
 }
 
-.center-slider .slick-track {
-  display: flex;
-  align-items: hidden;
+.section-header .section-title {
+  font-size: clamp(32px, 5vw, 48px);
+  color: #1a1a1a;
+  font-weight: 500;
 }
 
-/* ================= SLIDES ================= */
-.center-slider .slick-slide {
+/* Grid Layout */
+.spotlight-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+/* Image Display (Left) */
+.image-display {
+  background-color: var(--white);
+  padding: 40px;
+  position: relative;
   display: flex;
   justify-content: center;
-  opacity: 0.35;
-  filter: blur(0.6px);
-  transform: scale(0.95);
-  transition: all 0.45s ease;
-}
-/* hover يوضح المنتج لكن يفضل أصغر من اللي في النص */
-.center-slider .slick-slide:hover:not(.slick-center) {
-  opacity: 0.9;
-  filter: none;
-  transform: scale(0.97);
-  z-index: 2;
+  align-items: center;
+  aspect-ratio: 1/1;
 }
 
-.center-slider .slick-center .product-slide {
-  transform: translateY(-6px);
-   border-radius: 22px;
-}
-
-/* ================= CENTER ================= */
-.center-slider .slick-center {
-  opacity: 1 !important;
-  filter: none !important;
-  transform: scale(1);
-  z-index: 3;
-}
-.center-slider {
-  width: 100%;
+.main-featured-img {
   max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: opacity 0.4s ease;
+}
+
+.badge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: var(--blue-deep);
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 6px 12px;
+  letter-spacing: 1px;
+}
+
+/* Product List (Right) */
+.details-side {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.product-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  cursor: pointer;
+  border-left: 3px solid transparent;
+  transition: all 0.3s ease;
+  margin-bottom: 10px;
+}
+
+.product-item.active {
+  background: var(--white);
+  border-left-color: var(--blue-deep);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.item-thumb {
+  width: 60px;
+  height: 60px;
+  background: #f0f0f0;
+  flex-shrink: 0;
+}
+
+.item-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.item-info {
+  flex-grow: 1;
+}
+
+.item-name {
+  font-size: 18px;
+  color: #1a1a1a;
+  margin-bottom: 4px;
+}
+
+.item-sub {
+  font-size: 13px;
+  color: var(--text-gray);
+  margin-bottom: 2px;
+}
+
+.item-notes {
+  font-size: 11px;
+  color: var(--text-gray);
+  font-style: italic;
+}
+
+.item-price {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* CTA Button */
+.add-to-cart-btn {
+  margin-top: 20px;
+  background: var(--blue-deep);
+  color: white;
+  border: none;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  text-transform: uppercase;
+}
+/* الـ Toast المعدل - تصميم عصري وهادي */
+.cart-toast {
+  position: fixed;
+  top: 100px;            /* مسافة بسيطة من السقف */
+  left: 70%;            /* في المنتصف بالظبط */
+  transform: translateX(-50%);
+  background: rgba(11, 43, 91, 0.95); /* نفس اللون الأزرق بس بشفافية بسيطة */
+  color: white;
+  padding: 14px 28px;
+  border-radius: 8px;   /* حواف ناعمة مش دائرية أوي عشان تليق مع الكروت */
+  z-index: 10000;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+  font-family: sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  backdrop-filter: blur(5px); /* تأثير زجاجي خفيف */
+  border: 1px solid rgba(255,255,255,0.1);
+ 
+}
+
+/* أنيميشن ناعم بيجي من فوق ويستقر */
+@keyframes slideDown {
+  from { 
+    top: -100px; 
+    opacity: 0; 
+  }
+  to { 
+    top: 20px; 
+    opacity: 1; 
+  }
+}
+.add-to-cart-btn:hover {
+  background: #082146;
+}
+
+/* Responsive (Mobile) */
+@media (max-width: 992px) {
+  .spotlight-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .image-display {
+    padding: 20px;
+  }
+} 
+/* الحاوية الأساسية للنصوص داخل الزرار */
+.cp-nav-back-button-text3 {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 90px; /* الحفاظ على عرض الزرار ثابت */
+  height: 24px;
   overflow: hidden;
 }
 
-.center-slider .slick-center .product-slide {
-  box-shadow:
-    0 25px 50px rgba(0,0,0,0.12),
-    0 0 0 1px rgba(243, 214, 227, 0.8);
+/* النص الافتراضي (اللوجو وكلمة بلو) */
+.default-text {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  opacity: 1;
 }
 
-
-/* ================= PRODUCT CARD ================= */
-/* ================= PRODUCT CARD ================= */
-.product-slide {
-  width: 380px;
-  background: #ffffff;
-  border-radius: 18px;
-  padding: 22px 22px 26px;
-  text-align: center;
-  cursor: pointer;
-  transition: transform 0.3s ease;
+/* صورة اللوجو الصغيرة */
+.nav-logo-small {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
-/* ================= IMAGE WRAPPER ================= */
-.product-slide img {
-  width: 100%;
-  height: 240px;              /* 👈 ارتفاع ثابت */
-  object-fit: cover;          /* 👈 السر هنا */
-  border-radius: 14px;
-  margin-bottom: 20px;
-  background: #f6f6f6;        /* لو الصورة صغيرة */
-}
-
-/* ================= TITLE ================= */
-.product-slide h3 {
-  font-size: 18px;
-  font-weight: 500;
-  margin-bottom: 18px;
-  color: var(--text-dark);
-}
-
-/* ================= BUTTON ================= */
-.product-slide button {
-  background: var(--blue-main);
+/* نص HOME (بيكون مستخبي تحت) */
+.hover-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 40px); /* تحت الزرار */
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  white-space: nowrap;
+  font-weight: 800;
   color: #fff;
-  border: none;
-  padding: 12px 38px;
-  border-radius: 30px;
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.25s ease;
 }
 
-.product-slide button:hover {
-  background: var(--blue-main);
-  box-shadow: 0 10px 30px rgba(243, 214, 227, 0.9);
-  transform: translateY(-2px);
+/* ===== تأثير الـ Hover المحسن ===== */
+.cp-nav-back-button:hover {
+  background: var(--blue-main) !important;
+  color: #fff !important;
+  border-color: var(--blue-main) !important;
+  box-shadow: 0 8px 20px rgba(46, 74, 125, 0.2);
 }
 
-
-/* ================= RESPONSIVE ADJUSTMENTS ================= */
-
-/* الشاشات الكبيرة (Desktop) */
-@media (min-width: 769px) {
-  .product-slide {
-    width: 90% !important; /* مسافة بسيطة بين المنتجات الثلاثة */
-    margin: 0 auto;
-  }
+.cp-nav-back-button:hover .default-text {
+  opacity: 0;
+  transform: translateY(-30px); /* بيطلع لفوق ويختفي */
 }
 
-/* الموبايل (Mobile Focus) */
-@media (max-width: 768px) {
-  /* السلايدر: يمنع ظهور حواف المنتجات المجاورة */
-  .center-slider .slick-list {
-    padding: 0 !important;
-    overflow: hidden !important;
-  }
+.cp-nav-back-button:hover .hover-text {
+  opacity: 1;
+  transform: translate(-50%, -50%); /* بيدخل في السنتر بالظبط */
+}
 
-  /* الكارت: يظهر منتج واحد في نص الشاشة */
-  .product-slide {
-    width: 90% !important; 
-    max-width: 340px;
-    margin: 20px auto !important;
-    background: #ffffff;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* ظل خفيف جداً */
-    padding: 15px;
-  }
+.cp-nav-back-button:hover .nav-back-arrow {
+  stroke: #fff;
+  transform: translateX(-3px); /* حركة خفيفة للسهم للشمال */
+}
 
-  /* الصورة: تكون مربعة (ليست طويلة) */
-  .product-slide img {
-    width: 100% !important;
-    height: auto !important; 
-    aspect-ratio: 1 / 1 !important; /* 👈 السحر هنا لجعلها مربعة */
-    object-fit: cover;
-    border-radius: 15px;
-    margin-bottom: 15px;
-  }
+/* ضبط مكان الزرار في صفحة المنتج (للدسكتوب والموبايل) */
+.product-page-back {
+  margin-bottom: 30px;
+  align-self: flex-start; /* عشان يفضل على الشمال دايماً */
+}
 
-  /* نلغي الفلاتر والبهتان في الموبايل عشان المنتج يبرز */
-  .center-slider .slick-slide {
-    opacity: 1 !important;
-    transform: none !important;
-    filter: none !important;
-  }
-
-  .product-slide h3 {
-    font-size: 19px;
-    color: var(--blue-main);
-    font-weight: 600;
-  }
-
-  .product-slide button {
-    width: 100%;
-    padding: 14px;
-    border-radius: 12px;
-    background: var(--blue-main);
-    font-size: 14px;
+@media (max-width: 992px) {
+  .product-page-back {
+    margin: 10px 0 20px 20px;
+    transform: scale(0.9);
   }
 }

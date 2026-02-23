@@ -26,7 +26,7 @@ html, body {
 
 /* ===== زرار الرجوع (الهوية الموحدة) ===== */
 .brand-header {
-  position: absolute;
+  position: relative;
   top: 100px;
   left: 5%;
   z-index: 1000;
@@ -212,7 +212,9 @@ html, body {
   }
 
   .category-sidebar h3 { display: none; }
-
+  .cp-nav-back-button {
+    left: 1%; /* بيكون أقرب للشمال في الموبايل */
+  }
   .category-sidebar ul {
     display: flex;
     overflow-x: auto; /* ده اللي بيعمل السكرول بالجنب */
@@ -243,4 +245,63 @@ html, body {
   .category-header h1 { font-size: 32px; text-align: center; margin-top: 20px; }
   
   .category-content { padding: 0 15px; }
+}
+/* حاوية النصوص */
+.text-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 80px; /* عشان الزرار ميكشش لما النص يتغير */
+  height: 24px;
+}
+
+/* النص الافتراضي (اللوجو وكلمة بلو) */
+.default-text {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: 0.3s ease-in-out;
+  opacity: 1;
+}
+
+.nav-logo-small {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* نص HOME اللي بيظهر في الهوفر */
+.hover-text {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); /* سنترة في النص بالظبط */
+  opacity: 0;
+  transition: 0.3s ease-in-out;
+  white-space: nowrap;
+  letter-spacing: 1px;
+}
+
+/* --- تأثير الـ Hover --- */
+.cp-nav-back-button:hover .default-text {
+  opacity: 0;
+  transform: translateY(-5px); /* حركة خفيفة لفوق وهو بيختفي */
+}
+
+.cp-nav-back-button:hover .hover-text {
+  opacity: 1;
+  transform: translate(-50%, -50%); /* يظهر في مكانه */
+  color: #fff; /* لو حابب لونه يقلب أبيض مع الخلفية الكحلي */
+}
+
+/* تعديل بسيط على الزرار نفسه عند الهوفر */
+.cp-nav-back-button:hover {
+  background: var(--blue-main);
+  border-color: var(--blue-main);
+}
+
+.cp-nav-back-button:hover .nav-back-arrow {
+  stroke: #fff; /* السهم يقلب أبيض */
 }

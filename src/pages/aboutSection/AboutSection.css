@@ -1,0 +1,134 @@
+/* ================= Variables ================= */
+:root {
+  --bg: #f6f2ed;
+  --text-dark: #1e1e1e;
+  --text-muted: #7a7a7a;
+  --border: #e2ddd6;
+  --blue: #0a2a52;
+}
+
+/* ================= Section ================= */
+.about-section {
+  background: var(--bg);
+  padding: 140px 0;
+  overflow: hidden;
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 24px;
+}
+
+/* ================= Top ================= */
+.about-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  margin-bottom: 120px;
+}
+
+.about-image {
+  overflow: hidden;
+}
+
+.about-image img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transition: transform 1.2s ease;
+}
+
+.zoom:hover img {
+  transform: scale(1.07);
+}
+
+/* ================= Text ================= */
+.about-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 20px;
+}
+
+.about-text h2 {
+  font-family: serif;
+  font-size: 48px;
+  line-height: 1.2;
+  color: var(--text-dark);
+  margin-bottom: 30px;
+}
+
+.about-text h2 em {
+  font-style: italic;
+}
+
+.about-text p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+  max-width: 480px;
+}
+
+/* ================= Pillars ================= */
+.about-pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px;
+  border-top: 1px solid var(--border);
+  padding-top: 80px;
+}
+
+.pillar-num {
+  font-family: serif;
+  font-size: 52px;
+  color: var(--border);
+  display: block;
+  margin-bottom: 20px;
+}
+
+.pillar h3 {
+  font-family: serif;
+  font-size: 20px;
+  margin-bottom: 12px;
+  color: var(--text-dark);
+}
+
+.pillar p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+/* ================= Animations ================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: 0.9s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ================= Responsive ================= */
+@media (max-width: 900px) {
+  .about-top {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .about-text h2 {
+    font-size: 38px;
+  }
+
+  .about-pillars {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
