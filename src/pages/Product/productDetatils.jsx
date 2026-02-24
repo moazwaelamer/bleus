@@ -133,7 +133,24 @@ export default function ProductView() {
 
         {/* Toast */}
         {/* Toast */}
-{toast && <div className="cart-toast show">{toast}</div>}
+{toast && (
+  <div className="cart-toast show">
+    <span className="toast-icon">
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M20 6L9 17l-5-5" />
+      </svg>
+    </span>
+
+    <span className="toast-text">{toast}</span>
+  </div>
+)}
       </div>
     </section>
   );
