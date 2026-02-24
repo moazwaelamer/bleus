@@ -294,44 +294,46 @@
 @media (max-width: 480px) {
 
   /* نخلي تفاصيل المنتج Flex */
-  .product-info {
-    display: flex;
-    flex-direction: column;
-  }
+
   .product-image img {
     max-height: 240px;
     object-fit: cover;
   }
-   .product-info h1 {
-    font-size: 28px;
-    margin-bottom: 6px;
+.product-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .product-info h1 {
+    order: 1;
   }
 
   .product-info .price {
-    font-size: 20px;
-    margin-bottom: 10px;
+    order: 2;
   }
+
   .text-container {
-    font-size: 14px;
-    line-height: 1.5;
-    max-height: 48px;
-    overflow: hidden;
+    order: 3;
+    max-height: none;
+    overflow: visible;
+  }
+
+  .add-to-cart {
+    order: 4;
   }
    .product-container {
     margin-top: 40px;}
-  /* الزرار يطلع الأول */
-  .add-to-cart {
-    position: fixed;
-    bottom: 12px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: calc(100% - 32px);
-    max-width: none;
-
-    z-index: 999;
-    margin: 0;
-    border-radius: 18px;
+   .add-to-cart {
+    position: relative;
+    width: 100%;
+    max-width: 340px;
+    margin: 16px auto 0;
+    padding: 16px;
+    font-size: 16px;
+    border-radius: 16px;
   }
+
 
   /* كل الكلام ييجي تحت الزرار */
   .product-info h1,
