@@ -172,6 +172,7 @@
   padding: 18px 45px;
   background: var(--blue-main);
   color: white;
+  position: relative;
   border: none;
   border-radius: 12px;
   font-weight: 700;
@@ -291,27 +292,30 @@
     display: none;
   }
 }
-@media (max-width: 480px) {
+@media (max-width: 370px) {
 
   /* نخلي تفاصيل المنتج Flex */
 
   .product-image img {
     max-height: 240px;
     object-fit: cover;
+     margin-bottom: 12px;
   }
 .product-info {
     display: flex;
     flex-direction: column;
     gap: 10px;
   }
-
   .product-info h1 {
-    order: 1;
+    margin-bottom: 4px;
+     order: 1;
   }
 
   .product-info .price {
+    margin-bottom: 8px;
     order: 2;
   }
+}
 
   .text-container {
     order: 3;
@@ -348,6 +352,6 @@
     margin: 10px auto 0;
   }
 .product-view {
-    padding-bottom: 100px; /* مساحة للزرار الثابت */
+     padding-top: 80px;   /* بدل 140 */
+    padding-bottom: 40px;/* مساحة للزرار الثابت */
   }
-}
