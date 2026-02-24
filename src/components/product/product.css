@@ -333,6 +333,15 @@ html, body {
   .category-page {
     padding-bottom: 140px; /* مساحة آمنة تحت */
   }
+  .cp-nav-back-button:hover .nav-back-text . {
+  stroke: #fff; /* السهم يقلب أبيض */
+}
+.cp-nav-back-button:hover {
+  background: var(--blue-main);
+  color: #fff;
+  transform: translateX(-5px);
+}
+
 }
 @media (max-width: 480px) {
   .add-to-cart {
