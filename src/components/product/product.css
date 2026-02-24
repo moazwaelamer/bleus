@@ -119,6 +119,10 @@ html, body {
   margin-bottom: 40px;
   letter-spacing: -1px;
 }
+/* ===== FIX CATEGORY HEADER POSITION ===== */
+.category-header {
+  margin-top: 80px;   /* ⬅ ينزل العنوان من تحت الناف */
+}
 
 .products-grid {
   display: grid;
@@ -372,4 +376,83 @@ html, body {
   .text-container:active {
     max-height: 300px;
   }
+}/* ===== MOBILE TOP SPACE FIX (Categories) ===== */
+@media (max-width: 480px) {
+
+  /* الصفحة نفسها */
+  .category-page {
+    padding-top: 48px !important;   /* كان 80 / 100 */
+    padding-bottom: 80px;
+  }
+
+  /* زرار BLEUS (الرجوع) */
+  .brand-header {
+    margin-bottom: 6px;
+  }
+
+  /* عنوان HOT DRINKS */
+  .category-header h1 {
+    margin-top: 8px;
+    margin-bottom: 12px;
+    font-size: 22px;
+  }
+
+  /* Tabs (Hot / Non coffee / Matcha) */
+  .category-sidebar {
+    padding-top: 4px !important;
+    padding-bottom: 6px !important;
+  }
+
+  /* الجريد نفسه */
+  .products-grid {
+    margin-top: 8px;
+    gap: 18px;
+  }
+
+  /* الكارت */
+  .product-card {
+    padding: 14px;
+    border-radius: 22px;
+  }
+
+  /* الصورة */
+  .product-image-box {
+    height: 200px;
+    margin-bottom: 8px;
+  }
+
+  /* اسم + سعر */
+  .product-card-info h3 {
+    font-size: 18px;
+    margin: 4px 0 2px;
+  }
+
+  .product-card-info span {
+    font-size: 15px;
+  }
+}@media (max-width: 480px) {
+
+ /* إصلاح نص HOME في الهوفر */
+.cp-nav-back-button:hover .hover-text {
+  opacity: 1;
+  color: #fff !important;
+}
+
+/* تأكيد إن الزرار نفسه أزرق */
+.cp-nav-back-button:hover {
+  background: var(--blue-main);
+}
+}
+@media (max-width: 480px) {
+  .brand-header {
+    position: relative;
+    top: 10px;
+    left: 0;
+    margin: 6px auto 10px; /* ينزل سنة */
+    display: flex;
+    justify-content: center;
+  }
+  .category-header {
+  margin-top: 0px;   /* ⬅ ينزل العنوان من تحت الناف */
+}
 }

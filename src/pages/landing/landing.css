@@ -94,9 +94,7 @@ img {
   margin: 0;
    background: var(--landing-gradient);
 }
-.category-page{
-    background: var(--landing-gradient);
-}
+
 .container {
   padding-top: 48px;
   padding-bottom: 48px;

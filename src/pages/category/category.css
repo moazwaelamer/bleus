@@ -21,9 +21,10 @@ html, body {
 }
 
 .cat-header-v3 {
-  margin: 0 auto 24px;   /* يسنتر العنصر نفسه */
-  max-width: 520px;
-  text-align: center;    /* يسنتر النص */
+  margin-bottom: 10px;
+  max-width: 520px; 
+  padding-left: 630px;/* مسافة جانبية حقيقية */
+    
 }
 
 .cat-header-v3 p {

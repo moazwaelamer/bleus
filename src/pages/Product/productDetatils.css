@@ -172,7 +172,7 @@
   padding: 18px 45px;
   background: var(--blue-main);
   color: white;
-  position: relative;
+  
   border: none;
   border-radius: 12px;
   font-weight: 700;
@@ -292,30 +292,6 @@
     display: none;
   }
 }
-@media (max-width: 370px) {
-
-  /* نخلي تفاصيل المنتج Flex */
-
-  .product-image img {
-    max-height: 240px;
-    object-fit: cover;
-     margin-bottom: 12px;
-  }
-.product-info {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .product-info h1 {
-    margin-bottom: 4px;
-     order: 1;
-  }
-
-  .product-info .price {
-    margin-bottom: 8px;
-    order: 2;
-  }
-}
 
   .text-container {
     order: 3;
@@ -355,3 +331,66 @@
      padding-top: 80px;   /* بدل 140 */
     padding-bottom: 40px;/* مساحة للزرار الثابت */
   }
+/* ===== iPhone 15 FIX ===== */
+@media (max-width: 430px) {
+
+  /* الصفحة نفسها */
+  .product-view {
+    padding-top: 56px;
+    padding-bottom: 24px;
+  }
+
+  .product-container {
+    margin-top: 12px;
+    gap: 0;
+  }
+
+  /* الصورة */
+  .product-image img {
+    max-width: 260px;
+    max-height: 290px;
+    border-radius: 20px;
+    margin: 0 auto 8px;
+  }
+
+  /* المحتوى */
+  .product-details {
+    gap: 8px;
+  }
+
+  .product-info {
+    gap: 4px;
+  }
+
+  .product-info h1 {
+    font-size: 24px;
+    margin: 0;
+  }
+
+  .product-info .price {
+    font-size: 17px;
+    margin: 2px 0 4px;
+  }
+
+  .text-container {
+    font-size: 13px;
+    line-height: 1.35;
+    margin: 0;
+  }
+
+  /* زرار Add */
+  .add-to-cart {
+    margin: 8px auto 0;
+    padding: 14px;
+    font-size: 15px;
+    max-width: 300px;
+    border-radius: 14px;
+  }
+
+  /* زرار الرجوع */
+  .product-back-btn {
+    margin: 6px auto 8px;
+    padding: 6px 14px;
+    font-size: 12px;
+  }
+}
