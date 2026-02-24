@@ -6,11 +6,18 @@
   --bb-dark: #4d4d4d;
   --bb-text: #333333;
   --bb-light-gray: #f9f9f9;
+  --page-gradient: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    rgba(243, 214, 227, 0.35) 35%,
+    rgba(46, 74, 125, 0.25) 60%,
+    #ffffff 100%
+  );
 }
 
 /* Base */
 .cp-wrapper {
-  background: var(--bb-cream);
+  background: var(--bb-white);
   min-height: 100vh;
   font-family: "Inter", sans-serif;
   color: var(--bb-text);
@@ -35,12 +42,13 @@
   display: flex; /* حولناه لـ flex بدل grid عشان التثبيت يظبط */
   align-items: flex-start;
   max-width: 1440px;
+  
   margin: 0 auto;
 }
 
 .cp-main-content {
   flex: 1; /* ياخد باقي المساحة */
-  background: var(--bb-white);
+  background: var(--page-gradient);  
   padding: 60px 80px;
   min-height: calc(100vh - 60px);
   border-right: 1px solid var(--bb-gray-line);
@@ -186,7 +194,7 @@
 
 /* Main Content */
 .cp-main-content {
-  background: var(--bb-white);
+  background: var(--page-gradient);
   padding: 60px 80px;
   min-height: calc(100vh - 60px);
   border-right: 1px solid var(--bb-gray-line);

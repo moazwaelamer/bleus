@@ -13,23 +13,30 @@
 html, body {
   margin: 0;
   padding: 0;
+  
   overflow-x: hidden;
   font-family: "Poppins", sans-serif;
   background: #fafbfe;
 }
 
 .category-page {
-  padding: 160px 0 100px;
+  padding: 120px 0 100px;
   min-height: 100vh;
-  background: linear-gradient(180deg, #fff 0%, var(--pink-soft) 100%);
+    background:
+    radial-gradient(
+      circle at center,
+      rgba(243, 214, 227, 0.45) 0%,
+      rgba(243, 214, 227, 0.25) 35%,
+    var(--pink-soft) 70%
+    );
 }
 
 /* ===== زرار الرجوع (الهوية الموحدة) ===== */
 .brand-header {
-  position: relative;
-  top: 100px;
+  position: fixed;
+  top: 90px;
   left: 5%;
-  z-index: 1000;
+  z-index: 9999;
 }
 
 .cp-nav-back-button {
@@ -68,7 +75,7 @@ html, body {
   border-right: 1px solid var(--line-soft);
   padding-right: 20px;
   position: sticky;
-  top: 120px;
+  top:  170px;
   height: fit-content;
 }
 
@@ -117,7 +124,7 @@ html, body {
 }
 
 .product-card {
-  background: #fff;
+  background: var(--landing-gradient);
   border-radius: 30px;
   padding: 20px;
   border: 1px solid var(--line-soft);
@@ -206,7 +213,7 @@ html, body {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(255, 255, 255, 0.95);
+    
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--line-soft);
   }

@@ -5,6 +5,7 @@
   --stripe-text-muted: #697386;
   --stripe-blue: #0570de;
   --link-green: #00d66f;
+  --landing-gradient: linear-gradient(180deg, var(--blue-main) 10%, var(--pink-soft) 80%);
 }/* الحاوية الرئيسية */
 .stripe-checkout-container {
   display: grid;
@@ -18,7 +19,7 @@
 
 /* تعديل الجزء الأيسر (الرمادي) */
 .order-summary-side {
-  background-color: #f6f9fc;
+  background: var(--landing-gradient);
   border-right: 1px solid #e6ebf1;
   display: flex;
   justify-content: flex-end;
@@ -28,7 +29,7 @@
 
 /* الجزء الأيمن (الأبيض) */
 .checkout-form-side {
-  background: #ffffff;
+  background: var(--landing-gradient);
   padding: 40px 80px;
   overflow-y: auto; /* عشان لو الفورم طويلة تعمل سكرول لوحدها */
 }

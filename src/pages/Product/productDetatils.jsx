@@ -57,37 +57,32 @@ export default function ProductView() {
   return (
     <section className="product-view">
       {/* زر الرجوع */}
-      <div className="brand-header">
-        <button
-          className="cp-nav-back-button"
-          onClick={() => navigate(-1)}
+      <button className="product-back-btn" onClick={() => navigate(-1)}>
+        <svg
+          className="product-back-icon"
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2.5"
         >
-          <svg
-            className="nav-back-arrow"
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2.5"
-          >
-            <line x1="19" y1="12" x2="5" y2="12" />
-            <polyline points="12 19 5 12 12 5" />
-          </svg>
+          <line x1="19" y1="12" x2="5" y2="12" />
+          <polyline points="12 19 5 12 12 5" />
+        </svg>
 
-          <div className="text-wrapper">
-            <div className="default-text">
-              <img
-                src="/assest/blue.jpg"
-                alt="BLEUS"
-                className="nav-logo-small"
-              />
-              <span>BLEUS</span>
-            </div>
-            <span className="hover-text">HOME</span>
+        <div className="text-wrapper">
+          <div className="default-text">
+            <img
+              src="/assest/blue.jpg"
+              alt="BLEUS"
+              className="nav-logo-small"
+            />
+            <span>BLEUS</span>
           </div>
-        </button>
-      </div>
+          <span className="hover-text">HOME</span>
+        </div>
+      </button>
 
       <div className="product-container">
         {/* Sidebar */}

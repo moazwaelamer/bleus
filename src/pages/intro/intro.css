@@ -1,182 +1,115 @@
-/* Intro Screen Container */
-.intro-screen {
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap");
+
+:root {
+  --blue-deep: #0b2b5b;
+  --white: #ffffff;
+}
+
+/* Scene */
+.book-scene {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: linear-gradient(135deg, #FAF9F6 0%, #F5F5F0 100%);
-  z-index: 9999;
+  inset: 0;
+  background: var(--blue-deep);
   display: flex;
-  align-items: center;
   justify-content: center;
-  opacity: 1;
-  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  align-items: center;
+  perspective: 1600px;
+  z-index: 9999;
 }
 
-.intro-screen.fade-out {
-  opacity: 0;
-}
-
-/* Scene Container */
-.intro-scene {
-  position: relative;
+/* Page */
+.page {
   width: 100%;
   height: 100%;
+  transform-style: preserve-3d;
+  transform-origin: right center;
+  transition: transform 1.2s ease-in-out;
+}
+
+/* Flip */
+.page.flip {
+  transform: rotateY(-180deg);
+}
+
+/* Front */
+.page-front,
+.page-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+}
+
+.page-front {
+  background: var(--blue-deep);
   display: flex;
-  align-items: center;
   justify-content: center;
-  overflow: hidden;
+  align-items: center;
 }
 
-/* Man Walking Animation */
-.man-walking {
-  animation: walkIn 2.8s ease-in-out forwards;
-  filter: blur(8px);
+/* Back of page (white like paper) */
+.page-back {
+  background: #fdfdfd;
+  transform: rotateY(180deg);
+}
+
+/* Content */
+.welcome-screen {
+  text-align: center;
+  padding: 0 20px;
+}
+
+.welcome-text {
+  font-family: "Playfair Display", serif;
+  font-size: 1.4rem;
+  color: var(--white);
+  margin-bottom: 12px;
   opacity: 0;
-  transform: translateX(-100vw) scale(0.6);
+  animation: textFadeUp 0.8s ease forwards;
+  animation-delay: 0.4s;
 }
 
-@keyframes walkIn {
-  0% {
-    transform: translateX(-100vw) scale(0.6);
-    filter: blur(8px);
-    opacity: 0;
-  }
-  40% {
-    transform: translateX(-20vw) scale(0.75);
-    filter: blur(4px);
-    opacity: 0.7;
-  }
-  70% {
-    transform: translateX(0) scale(0.85);
-    filter: blur(1px);
-    opacity: 0.9;
-  }
-  100% {
-    transform: translateX(0) scale(1);
-    filter: blur(0);
-    opacity: 1;
-  }
-}
-
-/* Signboard Animation */
-.signboard {
-  animation: signClarify 2.8s ease-in-out forwards;
-  opacity: 0.3;
-  transform-origin: center;
-}
-
-@keyframes signClarify {
-  0% {
-    opacity: 0.2;
-    transform: scale(0.9);
-  }
-  60% {
-    opacity: 0.5;
-    transform: scale(0.95);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* Sign Text Animation */
-.sign-text {
-  animation: textReveal 2.8s ease-in-out forwards;
+.bleus-title {
+  font-family: "Playfair Display", serif;
+  font-size: 4.2rem;
+  letter-spacing: 0.22em;
+  color: var(--white);
+  margin-bottom: 14px;
   opacity: 0;
+  animation: textFadeUp 1s ease forwards;
+  animation-delay: 1.2s;
 }
 
-@keyframes textReveal {
-  0% {
-    opacity: 0;
-    letter-spacing: 8px;
-  }
-  50% {
-    opacity: 0.3;
-    letter-spacing: 6px;
-  }
-  100% {
-    opacity: 1;
-    letter-spacing: 4px;
-  }
-}
-
-/* Shadow Animation */
-.shadow {
-  animation: shadowGrow 2.8s ease-in-out forwards;
+.tagline {
+  font-family: "Playfair Display", serif;
+  font-size: 1rem;
+  color: rgba(255,255,255,0.85);
   opacity: 0;
+  animation: textFadeUp 0.8s ease forwards;
+  animation-delay: 2.2s;
 }
 
-@keyframes shadowGrow {
-  0% {
-    opacity: 0;
-    transform: scale(0.5);
-  }
-  100% {
-    opacity: 0.1;
-    transform: scale(1);
-  }
-}
-
-/* Responsive Design */
+/* Mobile */
 @media (max-width: 768px) {
-  .man-walking svg {
-    width: 150px;
-    height: 300px;
+  .bleus-title {
+    font-size: 2.5rem;
+    letter-spacing: 0.14em;
   }
-  
-  @keyframes walkIn {
-    0% {
-      transform: translateX(-100vw) scale(0.5);
-      filter: blur(6px);
-      opacity: 0;
-    }
-    40% {
-      transform: translateX(-10vw) scale(0.65);
-      filter: blur(3px);
-      opacity: 0.7;
-    }
-    70% {
-      transform: translateX(0) scale(0.75);
-      filter: blur(1px);
-      opacity: 0.9;
-    }
-    100% {
-      transform: translateX(0) scale(0.85);
-      filter: blur(0);
-      opacity: 1;
-    }
+
+  .welcome-text {
+    font-size: 1.1rem;
+  }
+
+  .tagline {
+    font-size: 0.9rem;
   }
 }
-
-@media (max-width: 480px) {
-  .man-walking svg {
-    width: 120px;
-    height: 240px;
+@keyframes textFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
   }
-  
-  @keyframes walkIn {
-    0% {
-      transform: translateX(-100vw) scale(0.4);
-      filter: blur(5px);
-      opacity: 0;
-    }
-    40% {
-      transform: translateX(-5vw) scale(0.55);
-      filter: blur(2px);
-      opacity: 0.7;
-    }
-    70% {
-      transform: translateX(0) scale(0.65);
-      filter: blur(1px);
-      opacity: 0.9;
-    }
-    100% {
-      transform: translateX(0) scale(0.7);
-      filter: blur(0);
-      opacity: 1;
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

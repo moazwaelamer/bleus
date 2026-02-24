@@ -1,0 +1,118 @@
+/* ================= GLOBAL FIX ================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}:root {
+ --landing-gradient: linear-gradient(180deg, var(--blue-main) 10%, var(--pink-soft) 80%);
+}
+
+html, body {
+  width: 100%;
+  margin: 0;
+  padding-top: 90px;
+  overflow-x: hidden; /* يقفل أي overflow يمين */
+  font-family: "Poppins", sans-serif;
+  background: #ffffff;
+}
+
+/* يمنع أي section تطلع برا الشاشة */
+section {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+#hero {
+  width: 100%;
+  min-height: calc(100vh - 90px); /* يكمّل الشاشة بعد الناف */
+  padding: 0;
+  margin: 0;
+}
+/* ================= CATEGORIES ================= */
+#categories {
+  width: 100%;
+  padding: 80px 0;
+}
+
+/* ================= VIDEO ================= */
+#video {
+  width: 100%;
+  padding: 80px 0;
+}
+
+/* ================= PRODUCTS ================= */
+#products {
+  width: 100%;
+  padding: 100px 0;
+}
+
+/* ================= ABOUT ================= */
+#about {
+  width: 100%;
+  padding: 100px 0;
+}
+
+/* ================= MEMORIES ================= */
+#memories {
+  width: 100%;
+  padding: 100px 0;
+}
+
+/* ================= FOOTER ================= */
+#footer {
+  width: 100%;
+}
+
+/* ================= CENTERED CONTENT HELPER ================= */
+/* استخدم الكلاس ده جوا أي Section محتاجه متسنتر */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* ================= COMMON FIXES ================= */
+/* لو في صور */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* لو في grid أو flex بيكبر */
+.grid,
+.flex {
+  max-width: 100%;
+}
+#categories,
+#video,
+#products,
+#about,
+#memories {
+  padding: 0;
+  margin: 0;
+   background: var(--landing-gradient);
+}
+.category-page{
+    background: var(--landing-gradient);
+}
+.container {
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+
+  #categories,
+  #video,
+  #products,
+  #about,
+  #memories {
+    padding: 0px 0;
+  }
+
+  .container {
+    padding: 0 20px;
+  }
+}

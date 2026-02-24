@@ -5,6 +5,7 @@ import Footer from "../fotter/fotter";
 import ProductsSection from "../Product/ProductsSection";
 import MemoriesSection from "../memoriesSection/memories.jsx";
 import AboutSection from "../aboutSection/AboutSection.jsx";
+import "./landing.css";
 // Landing.jsx
 export default function Landing() {
   return (

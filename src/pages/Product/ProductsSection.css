@@ -6,8 +6,9 @@
 }
 
 .best-sellers-section {
+  
   padding: 80px 0;
-  background-color: var(--bg-light);
+ 
   font-family: 'serif', 'Arial', sans-serif;
 }
 
@@ -47,7 +48,7 @@
 
 /* Image Display (Left) */
 .image-display {
-  background-color: var(--white);
+  background-color: var(--bg-light);
   padding: 40px;
   position: relative;
   display: flex;
