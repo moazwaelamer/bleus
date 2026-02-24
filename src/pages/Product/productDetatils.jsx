@@ -132,7 +132,8 @@ export default function ProductView() {
         </div>
 
         {/* Toast */}
-        {toast && <div className="add-toast">{toast}</div>}
+        {/* Toast */}
+{toast && <div className="cart-toast show">{toast}</div>}
       </div>
     </section>
   );

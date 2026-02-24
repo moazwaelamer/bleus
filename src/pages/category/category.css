@@ -23,7 +23,8 @@ html, body {
 .cat-header-v3 {
   margin-bottom: 10px;
   max-width: 520px; 
-  padding-left: 630px;/* مسافة جانبية حقيقية */
+  padding-left: 630px;
+  color: aqua;/* مسافة جانبية حقيقية */
     
 }
 
@@ -167,7 +168,9 @@ html, body {
     overflow: hidden;
     margin-bottom: 10px;
   }
-
+  .cat-header-v3 {
+    padding-left: 120px;
+    padding-bottom: 20px; /* يبعد عن الجنب */}
   /* TEXT AREA */
   .cat-details-footer {
     padding: 0 2px;

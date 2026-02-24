@@ -131,7 +131,11 @@ html, body {
 }
 
 .product-card {
-  background: var(--landing-gradient);
+   background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #F7E4EC 100%
+  );
   border-radius: 30px;
   padding: 20px;
   border: 1px solid var(--line-soft);
@@ -203,7 +207,11 @@ html, body {
   height: 100%;
   object-fit: contain; /* عشان الصورة متتقصش زي الصور اللي بعتها */
 }
-
+.category-page{ background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #F7E4EC 100%
+  );}
 /* ================= الموبايل (التعديل السحري) ================= */
 @media (max-width: 992px) {
   .category-page { padding-top: 100px !important; }
@@ -336,8 +344,10 @@ html, body {
 }
 @media (max-width: 480px) {
   .category-page {
-    padding-bottom: 140px; /* مساحة آمنة تحت */
+    padding-bottom: 140px; 
+    /* مساحة آمنة تحت */
   }
+  
   .cp-nav-back-button:hover .nav-back-text  {
   stroke: #fff; /* السهم يقلب أبيض */
 }
@@ -366,6 +376,8 @@ html, body {
     z-index: 999;
   }
 }@media (max-width: 480px) {
+  .product-card {
+  background: var(--landing-gradient);}
   .text-container {
     font-size: 14px;
     line-height: 1.5;
