@@ -299,6 +299,7 @@ html, body {
 .hover-text {
   position: absolute;
   left: 50%;
+  color: #000;
   top: 50%;
   transform: translate(-50%, -50%); /* سنترة في النص بالظبط */
   opacity: 0;
@@ -327,4 +328,39 @@ html, body {
 
 .cp-nav-back-button:hover .nav-back-arrow {
   stroke: #fff; /* السهم يقلب أبيض */
+}
+@media (max-width: 480px) {
+  .category-page {
+    padding-bottom: 140px; /* مساحة آمنة تحت */
+  }
+}
+@media (max-width: 480px) {
+  .add-to-cart {
+    position: fixed;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: calc(100% - 32px);
+    max-width: 420px;
+
+    padding: 14px;
+    font-size: 16px;
+    border-radius: 16px;
+
+    box-shadow: 0 -6px 20px rgba(46, 74, 125, 0.25);
+    z-index: 999;
+  }
+}@media (max-width: 480px) {
+  .text-container {
+    font-size: 14px;
+    line-height: 1.5;
+    max-height: 72px;   /* 3 سطور تقريبًا */
+    overflow: hidden;
+  }
+}
+@media (max-width: 480px) {
+  .text-container:active {
+    max-height: 300px;
+  }
 }

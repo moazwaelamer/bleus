@@ -80,6 +80,7 @@
 
 .hover-text {
   position: absolute;
+  color: #000;
   opacity: 0;
   transition: 0.3s ease-in-out;
   letter-spacing: 1px;
@@ -249,6 +250,7 @@
 
   .add-to-cart {
     width: 100%;
+    position: relative;
     max-width: 340px;
     padding: 18px;
     font-size: 17px;
