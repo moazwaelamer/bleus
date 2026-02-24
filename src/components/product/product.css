@@ -18,9 +18,9 @@ html, body {
   font-family: "Poppins", sans-serif;
   background: #fafbfe;
 }
-
+@media (max-width: 992px) {
 .category-page {
-  padding: 120px 0 100px;
+ padding: 80px 0 60px !important;
   min-height: 100vh;
     background:
     radial-gradient(
@@ -29,6 +29,9 @@ html, body {
       rgba(243, 214, 227, 0.25) 35%,
     var(--pink-soft) 70%
     );
+}  .products-grid {
+    margin-top: 10px;
+  }
 }
 
 /* ===== زرار الرجوع (الهوية الموحدة) ===== */
@@ -201,7 +204,17 @@ html, body {
 @media (max-width: 992px) {
   .category-page { padding-top: 100px !important; }
   
-  .brand-header { position: relative; top: 0; left: 20px; margin-bottom: 20px; transform: scale(0.9); }
+  
+  .brand-header {
+    position: relative;
+    top: 0;
+    left: 0;
+    margin: 0 auto 12px;
+    display: flex;
+    justify-content: center;
+    transform: scale(0.9);
+  }
+
 
   .category-container { flex-direction: column; width: 100%; gap: 10px; }
 
@@ -209,7 +222,8 @@ html, body {
   .category-sidebar {
     width: 100% !important;
     border: none;
-    padding: 10px 20px !important;
+    padding: 8px 12px !important;
+
     position: sticky;
     top: 0;
     z-index: 100;
@@ -235,10 +249,11 @@ html, body {
   .sidebar-link {
     white-space: nowrap; /* يمنع نزول النص لسطر جديد */
     background: #fff;
-    padding: 8px 20px !important;
+        padding: 6px 16px !important;
+    font-size: 12px;
     border-radius: 50px;
     border: 1px solid #eee;
-    font-size: 13px;
+    
     margin-bottom: 0;
   }
 
@@ -249,7 +264,8 @@ html, body {
     padding-left: 20px;
   }
 
-  .category-header h1 { font-size: 32px; text-align: center; margin-top: 20px; }
+  .category-header h1 {  font-size: 26px;
+    margin-bottom: 20px; text-align: center;  }
   
   .category-content { padding: 0 15px; }
 }
