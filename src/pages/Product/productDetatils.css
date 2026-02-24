@@ -289,7 +289,7 @@
 
   /* نخلي كلمة HOME مش ظاهرة في الموبايل */
   .hover-text {
-    display: none;
+    color: #fff;
   }
 }
 

@@ -315,7 +315,8 @@ html, body {
 /* --- تأثير الـ Hover --- */
 .cp-nav-back-button:hover .default-text {
   opacity: 0;
-  transform: translateY(-5px); /* حركة خفيفة لفوق وهو بيختفي */
+  transform: translateY(-5px);
+   /* حركة خفيفة لفوق وهو بيختفي */
 }
 
 .cp-nav-back-button:hover .hover-text {
@@ -455,4 +456,10 @@ html, body {
   .category-header {
   margin-top: 0px;   /* ⬅ ينزل العنوان من تحت الناف */
 }
+.cp-nav-back-button:hover .hover-text {
+  opacity: 1;
+  transform: translate(-50%, -50%); /* يظهر في مكانه */
+  color: #fff; /* لو حابب لونه يقلب أبيض مع الخلفية الكحلي */
+}
+
 }
