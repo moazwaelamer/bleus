@@ -15,14 +15,13 @@
   overflow: hidden;
 }
 
-.intro-perspective {
+.intro-stage {
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  perspective: 1200px;
   position: relative;
 }
 
@@ -37,7 +36,7 @@
   transform: translateY(24px);
   transition: opacity 1s ease-out, transform 1s ease-out;
   position: absolute;
-  top: 18%;
+  top: 15%;
 }
 
 .intro-welcome.visible {
@@ -45,84 +44,79 @@
   transform: translateY(0);
 }
 
-/* ========== Character Wrapper ========== */
-.intro-character-wrapper {
+/* ========== Character Unit (character + signboard as one) ========== */
+.intro-character-unit {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -40%) scale(0.08);
+  transform: translate(-50%, -50%) scale(0.05);
   opacity: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   transition: none;
 }
 
-.intro-character-wrapper.approaching {
+.intro-character-unit.approaching {
   opacity: 1;
-  animation: characterApproach 2.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation: characterApproach 2.6s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
 }
 
-.intro-character-wrapper.arrived {
+.intro-character-unit.arrived {
   opacity: 1;
-  transform: translate(-50%, -40%) scale(1);
+  transform: translate(-50%, -50%) scale(1);
   animation: none;
 }
 
 @keyframes characterApproach {
   0% {
     opacity: 0;
-    transform: translate(-50%, -20%) scale(0.06);
+    transform: translate(-50%, -30%) scale(0.04);
   }
-  10% {
+  8% {
     opacity: 1;
   }
   100% {
     opacity: 1;
-    transform: translate(-50%, -40%) scale(1);
+    transform: translate(-50%, -50%) scale(1);
   }
 }
 
-/* ========== Character ========== */
-.intro-character {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-}
-
-.intro-character-img {
-  width: 260px;
-  height: auto;
-  object-fit: contain;
-  user-select: none;
-  pointer-events: none;
-}
-
-/* ========== Signboard ========== */
+/* ========== Signboard (above character, as if held) ========== */
 .intro-signboard {
-  position: absolute;
-  bottom: 18%;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(255, 255, 255, 0.06);
-  border: 1.5px solid rgba(201, 169, 110, 0.5);
+  background: rgba(255, 255, 255, 0.07);
+  border: 1.5px solid rgba(201, 169, 110, 0.45);
   border-radius: 6px;
-  padding: 10px 38px;
+  padding: 8px 36px;
+  margin-bottom: 12px;
   opacity: 0;
-  transition: opacity 0.8s ease-out;
-  backdrop-filter: blur(6px);
+  transform: translateY(8px);
+  transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+  backdrop-filter: blur(4px);
 }
 
 .intro-signboard.visible {
   opacity: 1;
+  transform: translateY(0);
 }
 
 .intro-signboard-text {
   font-family: "Playfair Display", serif;
   font-weight: 700;
-  font-size: 2.8rem;
-  letter-spacing: 0.28em;
+  font-size: 2.6rem;
+  letter-spacing: 0.26em;
   color: var(--white);
   white-space: nowrap;
-  text-shadow: 0 0 30px rgba(201, 169, 110, 0.3);
+  text-shadow: 0 0 24px rgba(201, 169, 110, 0.25);
+}
+
+/* ========== Character Image ========== */
+.intro-character-img {
+  width: 240px;
+  height: auto;
+  object-fit: contain;
+  user-select: none;
+  pointer-events: none;
 }
 
 /* ========== Tagline ========== */
@@ -133,7 +127,7 @@
   color: rgba(255, 255, 255, 0.8);
   letter-spacing: 0.1em;
   position: absolute;
-  bottom: 14%;
+  bottom: 12%;
   opacity: 0;
   transform: translateY(16px);
   transition: opacity 1.2s ease-out, transform 1.2s ease-out;
@@ -147,16 +141,16 @@
 /* ========== Tablet ========== */
 @media (max-width: 1024px) {
   .intro-character-img {
-    width: 220px;
+    width: 200px;
   }
 
   .intro-signboard-text {
-    font-size: 2.2rem;
+    font-size: 2.1rem;
     letter-spacing: 0.22em;
   }
 
   .intro-signboard {
-    padding: 8px 28px;
+    padding: 7px 26px;
   }
 }
 
@@ -164,20 +158,20 @@
 @media (max-width: 600px) {
   .intro-welcome {
     font-size: 1.3rem;
-    top: 16%;
+    top: 14%;
   }
 
   .intro-character-img {
-    width: 170px;
+    width: 160px;
   }
 
   .intro-signboard {
-    padding: 6px 20px;
-    bottom: 16%;
+    padding: 6px 18px;
+    margin-bottom: 8px;
   }
 
   .intro-signboard-text {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     letter-spacing: 0.18em;
   }
 
@@ -192,11 +186,11 @@
 /* ========== Small phones ========== */
 @media (max-width: 380px) {
   .intro-character-img {
-    width: 140px;
+    width: 130px;
   }
 
   .intro-signboard-text {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
 
   .intro-welcome {
