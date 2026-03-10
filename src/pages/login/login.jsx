@@ -114,29 +114,6 @@ export default function Login({ onClose }) {
                 : "Log Into Your Account"}
             </h2>
 
-            {/* ===== Social Login (Login only) ===== */}
-            {!isSignup && (
-              <>
-                <div className="social-buttons">
-                  <button type="button" className="fb">
-                    Log In With Facebook
-                  </button>
-
-                  <button type="button" className="google">
-                    Log In With Google
-                  </button>
-
-                  <button type="button" className="apple">
-                    Log In With Apple
-                  </button>
-                </div>
-
-                <div className="divider">
-                  <span>OR</span>
-                </div>
-              </>
-            )}
-
             {/* ===== FORM ===== */}
             <form onSubmit={handleSubmit} autoComplete="off">
               {isSignup && (
