@@ -1,115 +1,223 @@
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Cormorant+Garamond:wght@300;400;600&display=swap");
 
 :root {
   --blue-deep: #0b2b5b;
   --white: #ffffff;
+  --gold-accent: #c9a96e;
 }
 
-/* Scene */
-.book-scene {
+/* ========== Scene ========== */
+.intro-scene {
   position: fixed;
   inset: 0;
   background: var(--blue-deep);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  perspective: 1600px;
   z-index: 9999;
+  overflow: hidden;
 }
 
-/* Page */
-.page {
+.intro-stage {
   width: 100%;
   height: 100%;
-  transform-style: preserve-3d;
-  transform-origin: right center;
-  transition: transform 1.2s ease-in-out;
-}
-
-/* Flip */
-.page.flip {
-  transform: rotateY(-180deg);
-}
-
-/* Front */
-.page-front,
-.page-back {
-  position: absolute;
-  inset: 0;
-  backface-visibility: hidden;
-}
-
-.page-front {
-  background: var(--blue-deep);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
-/* Back of page (white like paper) */
-.page-back {
-  background: #fdfdfd;
-  transform: rotateY(180deg);
-}
-
-/* Content */
-.welcome-screen {
-  text-align: center;
-  padding: 0 20px;
-}
-
-.welcome-text {
-  font-family: "Playfair Display", serif;
-  font-size: 1.4rem;
+/* ========== Welcome Text ========== */
+.intro-welcome {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 300;
+  font-size: 2rem;
   color: var(--white);
+  letter-spacing: 0.12em;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+  position: absolute;
+  top: 15%;
+}
+
+.intro-welcome.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========== Character Unit (character + signboard as one) ========== */
+.intro-character-unit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.05);
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: none;
+}
+
+.intro-character-unit.approaching {
+  opacity: 1;
+  animation: characterApproach 2.6s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+.intro-character-unit.arrived {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  animation: none;
+}
+
+@keyframes characterApproach {
+  0% {
+    opacity: 0;
+    transform:
+      translate(-50%, -20%)
+      scale(0.03);
+  }
+  12% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform:
+      translate(-50%, -50%)
+      scale(1);
+  }
+}
+/* ========== Signboard (above character, as if held) ========== */
+.intro-signboard {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1.5px solid rgba(201, 169, 110, 0.45);
+  border-radius: 6px;
+  padding: 8px 36px;
   margin-bottom: 12px;
   opacity: 0;
-  animation: textFadeUp 0.8s ease forwards;
-  animation-delay: 0.4s;
+  transform: translateY(8px);
+  transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+  backdrop-filter: blur(4px);
 }
 
-.bleus-title {
+.intro-signboard.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.intro-signboard-text {
   font-family: "Playfair Display", serif;
-  font-size: 4.2rem;
-  letter-spacing: 0.22em;
+  font-weight: 700;
+  font-size: 2.6rem;
+  letter-spacing: 0.26em;
   color: var(--white);
-  margin-bottom: 14px;
-  opacity: 0;
-  animation: textFadeUp 1s ease forwards;
-  animation-delay: 1.2s;
+  white-space: nowrap;
+  text-shadow: 0 0 24px rgba(201, 169, 110, 0.25);
 }
 
-.tagline {
-  font-family: "Playfair Display", serif;
-  font-size: 1rem;
-  color: rgba(255,255,255,0.85);
-  opacity: 0;
-  animation: textFadeUp 0.8s ease forwards;
-  animation-delay: 2.2s;
+/* ========== Character Image ========== */
+.intro-character-img {
+  width: 240px;
+  height: auto;
+  object-fit: contain;
+  user-select: none;
+  pointer-events: none;
 }
 
-/* Mobile */
-@media (max-width: 768px) {
-  .bleus-title {
-    font-size: 2.5rem;
-    letter-spacing: 0.14em;
+/* ========== Tagline ========== */
+.intro-tagline {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 300;
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.1em;
+  position: absolute;
+  bottom: 12%;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+}
+
+.intro-tagline.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========== Tablet ========== */
+@media (max-width: 1024px) {
+  .intro-character-img {
+    width: 200px;
   }
 
-  .welcome-text {
+  .intro-signboard-text {
+    font-size: 2.1rem;
+    letter-spacing: 0.22em;
+  }
+
+  .intro-signboard {
+    padding: 7px 26px;
+  }
+}
+
+/* ========== Mobile ========== */
+@media (max-width: 600px) {
+  .intro-welcome {
+    font-size: 1.3rem;
+    top: 14%;
+  }
+
+  .intro-character-img {
+    width: 160px;
+  }
+
+  .intro-signboard {
+    padding: 6px 18px;
+    margin-bottom: 8px;
+  }
+
+  .intro-signboard-text {
+    font-size: 1.5rem;
+    letter-spacing: 0.18em;
+  }
+
+  .intro-tagline {
+    font-size: 0.95rem;
+    bottom: 10%;
+    padding: 0 24px;
+    text-align: center;
+  }
+}
+
+/* ========== Small phones ========== */
+@media (max-width: 380px) {
+  .intro-character-img {
+    width: 130px;
+  }
+
+  .intro-signboard-text {
+    font-size: 1.2rem;
+  }
+
+  .intro-welcome {
     font-size: 1.1rem;
   }
 
-  .tagline {
-    font-size: 0.9rem;
+  .intro-tagline {
+    font-size: 0.85rem;
   }
 }
-@keyframes textFadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+.intro-stage {
+  perspective: 1400px;
+} .intro-character-unit.approaching {
+  animation: characterApproach 3.4s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+.intro-character-video {
+  width: 240px;
+  height: auto;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+}
+@media (max-width: 600px) {
+  .intro-character-video {
+    width: 160px;
   }
 }

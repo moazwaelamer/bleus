@@ -1,18 +1,27 @@
 :root {
-  --coffee-blue: #0B2B5B;
+  --primary-blue: #2E4A7D;
+  --dark-blue: #0B2B5B;
+  --white: #ffffff;
+  --light-bg: #F4F6FA;
   --soft-gray: #8C8C8C;
-  --bg-creme: #F9F9F9;
   --text-dark: #1a1a1a;
 }
 .categories-section-v3 {
   padding: 80px 0 100px;
+    background: linear-gradient(
+    180deg,
+    var(--light-bg) 0%,
+    var(--primary-blue) 100%
+  );
  
 }
 html, body {
   width: 100%;
   overflow-x: hidden;
 }
-
+.cat-header-v3 h1 {
+  font-size: 52px;
+}
 
 /* ================= SECTION ================= */
 #categories {
@@ -24,7 +33,7 @@ html, body {
   margin-bottom: 10px;
   max-width: 520px; 
   padding-left: 630px;
-  color: aqua;/* مسافة جانبية حقيقية */
+  color: var( --dark-blue)/* مسافة جانبية حقيقية */
     
 }
 
@@ -38,7 +47,7 @@ html, body {
 .cat-header-v3 h1 {
   font-family: Georgia, serif;
   font-size: 44px;
-  color: var(--text-dark);
+ color: var(--primary-blue);
   line-height: 1.15;
 }
 
@@ -61,7 +70,7 @@ html, body {
   position: relative;
   aspect-ratio: 3 / 4; /* أطول شوية = شكل أفخم */
   overflow: hidden;
-  background-color: var(--bg-creme);
+   background-color: var(--light-bg);
   margin-bottom: 22px;
 }
 
@@ -77,10 +86,10 @@ html, body {
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    to top,
-    rgba(11, 43, 91, 0.75),
-    rgba(11, 43, 91, 0.2),
-    transparent
+    to bottom,
+    rgba(11,43,91,0.85) 0%,
+    rgba(11,43,91,0.45) 50%,
+    rgba(11,43,91,0.85) 100%
   );
   display: flex;
   flex-direction: column;
@@ -126,22 +135,28 @@ html, body {
 }
 
 .cat-details-footer h3 {
-  font-family: Georgia, serif;
-  font-size: 21px;
-  color: var(--text-dark);
+    font-family: Georgia, serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #0B2B5B;
+  letter-spacing: 0.5px;
   margin: 0;
 }
 
 .cat-product-count {
-  font-size: 23px;
+    font-size: 16px;
+  font-weight: 600;
+  color: #222;
   color: var(--text-dark);
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
-.cat-sub-desc {
-  font-size: 23px;
-  color: var(--text-dark);
+.cat-sub-desc p{
+    font-size: 26px;
+    font-weight: 600;
+  color: #444;
+ 
   max-width: 90%;
 }
 
@@ -184,7 +199,7 @@ html, body {
 
   /* TITLE */
   .cat-details-footer h3 {
-    font-size: 14px;
+    font-size: 22px;
     font-weight: 600;
     letter-spacing: 0.4px;
     line-height: 1.25;
@@ -198,8 +213,8 @@ html, body {
   }
 
   /* SUB DESC */
-  .cat-sub-desc {
-    font-size: 11px;
+  .cat-sub-desc p {
+    font-size: 19px;
     margin-top: 4px;
     line-height: 1.4;
     
@@ -254,4 +269,12 @@ html, body {
     font-size: 11px;
     line-height: 1.4;
   }
+}
+button {
+  background: var(--primary-blue);
+  color: white;
+}
+
+button:hover {
+  background: var(--dark-blue);
 }

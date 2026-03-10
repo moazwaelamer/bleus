@@ -15,3 +15,75 @@ html, body {
 section {
   width: 100%;
 }
+.brand-header{
+position:fixed;
+top:90px;
+left:5%;
+z-index:9999;
+}
+
+.cp-nav-back-button{
+display:flex;
+align-items:center;
+gap:12px;
+
+background:#fff;
+border:2px solid #2E4A7D;
+
+padding:10px 22px;
+border-radius:50px;
+
+cursor:pointer;
+font-weight:800;
+color:#2E4A7D;
+
+transition:.3s;
+}
+
+.cp-nav-back-button:hover{
+background:#2E4A7D;
+color:#fff;
+transform:translateX(-5px);
+}
+
+.text-wrapper{
+position:relative;
+display:flex;
+align-items:center;
+justify-content:center;
+min-width:80px;
+height:24px;
+}
+
+.default-text{
+display:flex;
+align-items:center;
+gap:8px;
+transition:.3s;
+}
+
+.hover-text{
+position:absolute;
+left:50%;
+top:50%;
+transform:translate(-50%,-50%);
+opacity:0;
+transition:.3s;
+}
+
+.cp-nav-back-button:hover .default-text{
+opacity:0;
+transform:translateY(-5px);
+}
+
+.cp-nav-back-button:hover .hover-text{
+opacity:1;
+color:#fff;
+}
+
+.nav-logo-small{
+width:20px;
+height:20px;
+border-radius:50%;
+object-fit:cover;
+}

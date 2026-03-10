@@ -18,11 +18,7 @@ export default function Hero() {
   return (
     <section className="hero" id="hero">
       {/* Background Image */}
-      <img
-        src="https://images.unsplash.com/photo-1511920170033-f8396924c348?q=80&w=1600"
-        alt="Coffee"
-        className="hero-image"
-      />
+     
 
       {/* Overlay */}
       <div className="hero-overlay" />

@@ -161,8 +161,27 @@ export default function Navbar() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -8 }}
               >
-                <div className="dropdown-item">Hello, {currentUser.username}</div>
-                <div className="dropdown-item logout" onClick={logout}>Logout</div>
+              <div className="account-header">
+  <strong>{currentUser.username}</strong>
+  <span className="user-email">{currentUser.email}</span>
+</div>
+
+<div
+  className="dropdown-item"
+  onClick={() => {
+    navigate("/orders");
+    setAccountOpen(false);
+  }}
+>
+My Orders
+</div>
+
+<div
+  className="dropdown-item logout"
+  onClick={logout}
+>
+Logout
+</div>
               </motion.div>
             )}
           </AnimatePresence>
@@ -226,10 +245,7 @@ export default function Navbar() {
         </div>
 
         <div className="menu-right">
-          <img
-            src="https://images.unsplash.com/photo-1509042239860-f550ce710b93"
-            alt="Cup of coffee"
-          />
+         <img src="/assest/blue.jpg" alt="Bleu coffee" />
         </div>
       </div>
     </motion.div>

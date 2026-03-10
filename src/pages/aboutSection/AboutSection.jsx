@@ -40,7 +40,9 @@ export default function AboutSection() {
 
     return () => observer.disconnect();
   }, []);
-
+const images = {
+  mem1: "/assest/mem3.jpeg",
+};
   return (
     <section className="about-section" ref={sectionRef}>
       <div className="about-container">
@@ -49,7 +51,7 @@ export default function AboutSection() {
         <div className="about-top">
           <div className="about-image reveal zoom">
             <img
-              src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1400"
+              src={images.mem1}
               alt="BLEUS Roastery"
             />
           </div>

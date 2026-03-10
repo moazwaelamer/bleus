@@ -186,7 +186,13 @@ export default function CartPage() {
             <div className="summary-row"><span>SUBTOTAL</span><span>{subtotal} EGP</span></div>
             <div className="summary-row"><span>SHIPPING</span><span>{shipping === 0 ? "FREE" : `${shipping} EGP`}</span></div>
             <div className="summary-row total"><strong>TOTAL</strong><strong>{total} EGP</strong></div>
-            <button className="cp-btn-primary" disabled={items.length === 0}>CONTINUE TO CHECKOUT</button>
+            <button
+className="cp-btn-primary"
+disabled={items.length === 0}
+onClick={() => navigate("/checkout")}
+>
+CONTINUE TO CHECKOUT
+</button>
           </aside>
         </div>
       </div>

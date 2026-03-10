@@ -9,7 +9,13 @@
 
 /* ================= Section ================= */
 .about-section {
-
+  background: linear-gradient(
+    180deg,
+    var(--light-bg) 0%,
+     var(--primary-blue) 100%
+   
+  );
+ 
   padding: 140px 0;
   overflow: hidden;
 }

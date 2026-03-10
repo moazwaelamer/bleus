@@ -1,6 +1,5 @@
 import { useEffect, useRef } from "react";
 import "./memories.css";
-
 export default function MemoriesSection() {
   const sectionRef = useRef(null);
 
@@ -23,11 +22,11 @@ export default function MemoriesSection() {
     return () => observer.disconnect();
   }, []);
 
-  const images = {
-    big: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1200",
-    small1: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=800",
-    small2: "https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=800",
-  };
+const images = {
+  mem1: "/assest/mem1.jpg",
+  mem2: "/assest/mem2.jpg",
+  mem3: "/assest/mem3.jpeg"
+};
 
   return (
     <section className="memories-section" ref={sectionRef}>
@@ -48,14 +47,14 @@ export default function MemoriesSection() {
 
           {/* Left big image */}
           <div className="memory-card big reveal zoom">
-            <img src={images.big} alt="Coffee with friends" />
+            <img src={images.mem2} alt="Coffee with friends" />
           </div>
 
           {/* Right column */}
           <div className="memory-right">
 
             <div className="memory-card reveal zoom delay-1">
-              <img src={images.small1} alt="Morning coffee ritual" />
+              <img src={images.mem3} alt="Morning coffee ritual" />
             </div>
 
             <div className="quote-card reveal delay-2">
@@ -66,27 +65,14 @@ export default function MemoriesSection() {
             </div>
 
             <div className="memory-card reveal zoom delay-3">
-              <img src={images.small2} alt="Coffee by the window" />
+              <img src={images.mem1} alt="Coffee by the window" />
             </div>
 
           </div>
         </div>
 
         {/* Stats */}
-        <div className="memories-stats reveal delay-4">
-          <div>
-            <h3>14</h3>
-            <p>Origin Countries</p>
-          </div>
-          <div>
-            <h3>2M+</h3>
-            <p>Cups Served</p>
-          </div>
-          <div>
-            <h3>8</h3>
-            <p>Years Crafting</p>
-          </div>
-        </div>
+       
 
       </div>
     </section>

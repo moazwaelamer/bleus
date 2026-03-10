@@ -1,26 +1,35 @@
-:root {
-  /* BRAND */
-  --blue-main: #2E4A7D;
-  --pink-soft: #F3D6E3;
-  --pink-hover: #EBC2D4;
+:root{
 
-  /* CART THEME */
-  --bb-bg: #ffffff;
-  --bb-text: #2E4A7D;
-  --bb-muted: rgba(46, 74, 125, 0.55);
-  --bb-line: rgba(46, 74, 125, 0.12);
-  --bb-blue: #2E4A7D;
-  --bb-btn: #2E4A7D;
+--blue-main:#2E4A7D;
+
+--pink-soft:#F3D6E3;
+--pink-hover:#EBC2D4;
+
+--bb-bg:#ffffff;
+
+--bb-text:#1f2d40;
+
+--bb-muted:rgba(46,74,125,.55);
+
+--bb-line:rgba(46,74,125,.12);
+
+--bb-btn:#2E4A7D;
+
+--bb-btn-hover:#243b63;
+
 }
 
-
 /* ================= OVERLAY ================= */
-.cart-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5); /* لون سادة أضمن للأداء */
-  backdrop-filter: none !important;
-  z-index: 3000;
+.cart-overlay{
+position:fixed;
+
+top:70px;
+left:0;
+right:0;
+bottom:0;
+
+background:rgba(0,0,0,.4);
+z-index:3000;
 }
 .free-ship .bar span {
   background: var(--bb-blue);
@@ -33,24 +42,30 @@
 
 
 /* ================= PANEL ================= */
-.cart-panel {
-  position: fixed;
-  right: 0;
-  top: 0;
-  width: 760px;              /* أكبر ومريح */
-  height: 100vh;
-  background: var(--bb-bg);
-  z-index: 4000;
-  display: flex;
-  flex-direction: column;
-  padding: 48px;
-  font-family: "Inter", sans-serif;
-  color: var(--bb-text);
-  will-change: transform;
-  transform: translate3d(100%, 0, 0); /* يبدأ من بره الشاشة */
-  backface-visibility: hidden;
-}
+.cart-panel{
+position:fixed;
+right:0;
 
+top:70px;           /* ارتفاع الناف بار */
+height:calc(100vh - 70px);
+
+width:760px;
+background: linear-gradient(
+180deg,
+var(--light-bg) 40%,
+var(--primary-blue) 100%
+);
+
+z-index:3500;
+
+display:flex;
+flex-direction:column;
+
+padding:48px;
+font-family:"Inter",sans-serif;
+
+transform:translate3d(100%,0,0);
+}
 /* ================= HEADER ================= */
 .cart-head {
   display: flex;
@@ -171,7 +186,8 @@
   width: 30px;
   height: 30px;
   border: 1px solid #ddd;
-  background: #fff;
+ background: white;
+ color: var(--bb-text);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -179,8 +195,8 @@
   font-size: 16px;
 }
 .bb-qty button:hover {
-  background: var(--pink-soft);
-  border-color: var(--blue-main);
+  background: var(--blue-main);
+  color: #fff;
 }
 .bb-qty span {
   font-size: 14px;
@@ -209,20 +225,30 @@
     color: var(--bb-muted);
   margin-bottom: 28px;
 }
+.cart-empty-btn{
 
-.cart-empty-btn {
-  padding: 14px 30px;
-   border: 1px solid var(--bb-text);
-  color: var(--bb-text);
-  background: transparent;
-  cursor: pointer;
-  letter-spacing: 1px;
-  transition: 0.25s ease;
+padding:14px 30px;
+
+border:1px solid var(--blue-main);
+
+color:var(--blue-main);
+
+background:transparent;
+
+cursor:pointer;
+
+letter-spacing:1px;
+
+transition:.25s;
+
 }
 
-.cart-empty-btn:hover {
-  background: var(--bb-text);
-  color: #fff;
+.cart-empty-btn:hover{
+
+background:var(--blue-main);
+
+color:#fff;
+
 }
 
 
@@ -235,15 +261,28 @@
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  border: 1px solid #d8d8d8;
-  background: transparent;
+  border: 1px solid var(--blue-main);
+  background: #fff;
   cursor: pointer;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  transition: all 0.25s ease;
+  transition: all .25s ease;
+}
+
+.cart-remove svg {
+  stroke: var(--blue-main);
+}
+
+.cart-remove:hover {
+  background: #ffefef;
+  border-color: #d9534f;
+}
+
+.cart-remove:hover svg {
+  stroke: #d9534f;
 }
 
 /* SVG SIZE */
@@ -388,22 +427,35 @@
   margin-top: 14px;
   font-size: 16px;
 }
+.cart-checkout{
 
-/* CHECKOUT BUTTON */
-.cart-checkout {
-  width: 100%;
-  margin-top: 28px;
-  padding: 18px;
- background: var(--blue-main);
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  letter-spacing: 1px;
-  transition: .25s ease;
+width:100%;
+margin-top:28px;
+
+padding:18px;
+
+background:var(--bb-btn);
+
+color:#fff;
+
+border:none;
+
+font-weight:600;
+
+letter-spacing:1px;
+
+cursor:pointer;
+
+transition:.25s;
+
 }
 
-.cart-checkout:hover {
-  background: #2f2f2f;
+.cart-checkout:hover{
+
+background:var(--bb-btn-hover);
+
+transform:translateY(-1px);
+
 }
 /* ================= RESPONSIVE ADJUSTMENTS ================= */
 

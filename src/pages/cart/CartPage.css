@@ -8,11 +8,10 @@
   --bb-light-gray: #f9f9f9;
   --page-gradient: linear-gradient(
     180deg,
-    #ffffff 0%,
-    rgba(243, 214, 227, 0.35) 35%,
-    rgba(46, 74, 125, 0.25) 60%,
-    #ffffff 100%
+    var(--light-bg) 0%,
+    var(--primary-blue) 100%
   );
+ 
 }
 
 /* Base */
@@ -300,6 +299,9 @@
 .like-head h4 {
   font-family: "Georgia", serif;
   font-size: 24px;
+  color:#ffffff;
+font-weight:500;
+letter-spacing:0.5px;
   font-weight: 400;
   margin: 0;
 }
@@ -330,8 +332,10 @@
 }
 
 .like-img-wrapper {
-  background: var(--bb-light-gray);
-  padding: 15px;
+background:#ffffff;
+padding:18px;
+border-radius:6px;
+box-shadow:0 4px 20px rgba(0,0,0,0.08);
   margin-bottom: 15px;
   display: flex;
   justify-content: center;
@@ -353,29 +357,32 @@
   font-size: 14px;
   font-weight: 500;
   margin: 0 0 5px 0;
+color:#ffffff;
 }
-
 .like-price {
   font-size: 13px;
-  color: #666;
+ color:#e8e8e8;
 }
 
 /* زر الـ Add اللي في السلايدر */
-.like-add-btn {
-  width: 100%;
-  padding: 12px;
-  background: transparent;
-  border: 1px solid var(--bb-dark);
-  font-size: 11px;
-  letter-spacing: 1px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
+.like-add-btn{
+width:100%;
+padding:13px;
+background:#ffffff;
+border:none;
+color:#2E4A7D;
+font-size:12px;
+letter-spacing:1px;
+font-weight:600;
+cursor:pointer;
+transition:all .3s ease;
 }
 
-.like-add-btn:hover {
-  background: var(--bb-dark);
-  color: white;
+.like-add-btn:hover{
+background:#2E4A7D;
+color:#ffffff;
+transform:translateY(-2px);
+box-shadow:0 6px 15px rgba(0,0,0,0.15);
 }
 
 /* Buttons */
@@ -398,18 +405,22 @@
 }
 
 /* زر الـ Return to Shop الكبير اللي تحت */
-.cp-btn-secondary {
-  padding: 18px 45px;
-  background: var(--bb-dark);
-  color: white;
-  border: none;
-  font-size: 12px;
-  letter-spacing: 2px;
-  font-weight: 600;
-  cursor: pointer;
-  margin-top: 40px;
+.cp-btn-secondary{
+padding:18px 45px;
+background:#ffffff;
+color:#2E4A7D;
+border:none;
+font-size:12px;
+letter-spacing:2px;
+font-weight:600;
+cursor:pointer;
+transition:all .3s ease;
 }
 
+.cp-btn-secondary:hover{
+background:#2E4A7D;
+color:#fff;
+}
 .cp-sidebar {
   padding: 60px 50px;
   position: sticky; /* يخليه يثبت وأنت بتعمل سكرول */

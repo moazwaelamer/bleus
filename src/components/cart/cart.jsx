@@ -37,7 +37,7 @@ export default function CartPanel({ onClose }) {
     onClose(); // اقفل الكارت
 
     setTimeout(() => {
-      const section = document.getElementById("categories-section");
+      const section = document.getElementById("categories");
       if (!section) return;
 
       const y =
