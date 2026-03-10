@@ -1,11 +1,10 @@
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { products } from "./products";
 import "./productDetatils.css";
 import BackButton from "../../components/BackButton/BackButton.jsx";
 export default function ProductView() {
   const { id } = useParams();
-  const navigate = useNavigate();
   const [toast, setToast] = useState("");
 
   useEffect(() => {

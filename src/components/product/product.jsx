@@ -1,12 +1,11 @@
-import { useParams, Link, useNavigate } from "react-router-dom"; // أضفنا useNavigate
+import { useParams, Link } from "react-router-dom"; // أضفنا useNavigate
 import { useEffect } from "react";
 import { products } from "../../pages/Product/products.js";
 import { categories } from "../../pages/category/category";
 import "./product.css";
 import BackButton from "../BackButton/BackButton.jsx";
 export default function CategoryPage() {
-  const { slug } = useParams();
-  const navigate = useNavigate(); // عشان زرار الرجوع
+  const { slug } = useParams(); // عشان زرار الرجوع
 
   useEffect(() => {
     window.scrollTo(0, 0);

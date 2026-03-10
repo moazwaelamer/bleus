@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import "./intro.css";
 
-const characterImg = "/assest/bleus-character.png";
 
 export default function BleusExperience({ onFinish }) {
   const [phase, setPhase] = useState(0);
