@@ -7,7 +7,6 @@ import ProductDetails from "./pages/Product/productDetatils";
 import Checkout from "./pages/checkout/Checkout";
 import CartPage from "./pages/cart/CartPage";
 import CategoryPage from "./components/product/product";
-import Intro from "./pages/intro/intro";
 import PaymentSuccess from "./pages/checkout/PaymentSuccess";
 import  Orders from "./pages/profile/Orders";
 function App() {
@@ -16,9 +15,7 @@ function App() {
   return (
     
     <BrowserRouter>
-      {showIntro && <Intro onFinish={() => setShowIntro(false)} />}
-
-      {!showIntro && (
+    
         <>
           <Navbar />
                <Toaster position="top-right" />
@@ -32,7 +29,7 @@ function App() {
             <Route path="/orders" element={<Orders />} />
           </Routes>
         </>
-      )}
+
     </BrowserRouter>
   );
 }

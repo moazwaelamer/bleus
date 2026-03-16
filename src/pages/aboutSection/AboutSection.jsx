@@ -1,24 +1,6 @@
 import { useEffect, useRef } from "react";
 import "./AboutSection.css";
 
-const pillars = [
-  {
-    num: "01",
-    title: "Origin",
-    desc: "We travel to source directly from farmers who share our obsession for quality.",
-  },
-  {
-    num: "02",
-    title: "Craft",
-    desc: "Small-batch roasting in our atelier, dialing in each profile with precision and patience.",
-  },
-  {
-    num: "03",
-    title: "Community",
-    desc: "Every cup you drink supports fair wages and regenerative farming practices.",
-  },
-];
-
 export default function AboutSection() {
   const sectionRef = useRef(null);
 
@@ -82,19 +64,7 @@ const images = {
         </div>
 
         {/* Pillars */}
-        <div className="about-pillars">
-          {pillars.map((p, i) => (
-            <div
-              key={p.num}
-              className="pillar reveal"
-              style={{ transitionDelay: `${i * 150}ms` }}
-            >
-              <span className="pillar-num">{p.num}</span>
-              <h3>{p.title}</h3>
-              <p>{p.desc}</p>
-            </div>
-          ))}
-        </div>
+       
 
       </div>
     </section>

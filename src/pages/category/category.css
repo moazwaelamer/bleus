@@ -8,11 +8,7 @@
 }
 .categories-section-v3 {
   padding: 80px 0 100px;
-    background: linear-gradient(
-    180deg,
-    var(--light-bg) 0%,
-    var(--primary-blue) 100%
-  );
+    background:  var(--primary-blue)  
  
 }
 html, body {
@@ -40,14 +36,14 @@ html, body {
 .cat-header-v3 p {
   font-size: 11px;
   letter-spacing: 3px;
-  color: var(--soft-gray);
+  color: var(--light-bg);
   margin-top: 2px;
 }
 
 .cat-header-v3 h1 {
-  font-family: Georgia, serif;
+ font-family: Georgia, serif;
   font-size: 44px;
- color: var(--primary-blue);
+  color: var(--light-bg);
   line-height: 1.15;
 }
 
@@ -138,7 +134,7 @@ html, body {
     font-family: Georgia, serif;
   font-size: 26px;
   font-weight: 700;
-  color: #0B2B5B;
+  color: #ffffff;
   letter-spacing: 0.5px;
   margin: 0;
 }
@@ -146,17 +142,15 @@ html, body {
 .cat-product-count {
     font-size: 16px;
   font-weight: 600;
-  color: #222;
-  color: var(--text-dark);
+  color: #d6deed;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
-.cat-sub-desc p{
+.cat-sub-desc {
     font-size: 26px;
     font-weight: 600;
-  color: #444;
- 
+  color: #e6ecf8;
   max-width: 90%;
 }
 

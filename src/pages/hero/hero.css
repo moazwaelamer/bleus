@@ -1,150 +1,150 @@
-:root {
-  --primary-blue: #1C2D5A;        /* أزرق كحلي أهدى */
-  --accent-blue: #2E4A9E;         /* أزرق أفتح للهوفر */
-  --coffee-brown: #4B2E2E;        /* لون القهوة */
-  --warm-cream: #F5F1EB;          /* نص فاتح مش أبيض فاقع */
-  --soft-gray: #B5B5B5;           
-  --deep-black: #0F1115;          
-}
-/* ================= HERO ================= */
-.hero {
-  position: relative;
-  height: 100vh;
-  width: 100%;
+  :root {
+    --primary-blue: #1C2D5A;        /* أزرق كحلي أهدى */
+    --accent-blue: #2E4A9E;         /* أزرق أفتح للهوفر */
+    --coffee-brown: #4B2E2E;        /* لون القهوة */
+    --warm-cream: #F5F1EB;          /* نص فاتح مش أبيض فاقع */
+    --soft-gray: #B5B5B5;           
+    --deep-black: #0F1115;          
+  }
+  /* ================= HERO ================= */
+  .hero {
+    position: relative;
+    height: 100vh;
+    width: 100%;
 
-  background-image: url("../../../public/assest/wal.jpeg");
-  background-size: cover;   /* يظهر الصورة كاملة */
-  background-position: center;
-  background-repeat: no-repeat;
+    background-image: url("../../../public/assest/wal.jpeg");
+    background-size: cover;   /* يظهر الصورة كاملة */
+    background-position: center;
+    background-repeat: no-repeat;
 
-  background-color: #0F1115; /* لون خلفية لو الصورة أصغر */
-}
+    background-color: #0F1115; /* لون خلفية لو الصورة أصغر */
+  }
 
 
 
-/* Overlay */
-.hero-overlay {
-  position: absolute;
+  /* Overlay */
+  .hero-overlay {
+    position: absolute;
   inset: 0;
-background: linear-gradient(
-  to bottom,
-  rgba(10,15,30,0.75) 0%,
-  rgba(10,15,30,0.45) 50%,
-  rgba(10,15,30,0.75) 100%
-);
+  background: linear-gradient(
+    to bottom,
+    rgba(10,15,30,0.45) 0%,
+    rgba(10,15,30,0.25) 50%,
+    rgba(10,15,30,0.45) 100%
+  );
   z-index: 1;
-}
-/* ================= CONTENT ================= */
-.hero-content {
-  position: absolute;
-  top: 50%;
-  left: 8%;
-  transform: translateY(-50%);
-  z-index: 2;
-  color: var(--cream);
-  max-width: 520px;
-}
-
-.hero-eyebrow {
-  font-size: 12px;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  opacity: 0.8;
-  display: block;
-  margin-bottom: 16px;
-}
-
-.hero-content h1 {
-  font-family: serif;
-  font-size: 56px;
-  line-height: 1.1;
-  margin-bottom: 20px;
-}
-
-.hero-content h1 em {
-  font-style: italic;
-}
-
-.hero-content p {
-  font-size: 15px;
-  line-height: 1.7;
-  opacity: 0.85;
-  margin-bottom: 32px;
-}
-
-/* ================= BUTTONS ================= */
-.hero-actions {
-  display: flex;
-  gap: 16px;
-}
-
-.btn-primary {
-  background: var(--cream);
-  color: #000;
-  border: none;
-  padding: 14px 28px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: 0.3s ease;
-}
-
-.btn-primary:hover {
-  transform: translateY(-2px);
-}
-
-.btn-secondary {
-  background: transparent;
-  color: var(--cream);
-  border: 1px solid rgba(255,255,255,0.6);
-  padding: 14px 28px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: 0.3s ease;
-}
-
-.btn-secondary:hover {
-  background: rgba(255,255,255,0.1);
-}
-
-/* ================= SCROLL ARROW ================= */
-.scroll-arrow {
-  position: absolute;
-  bottom: 60px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: transparent;
-  border: none;
-  color: #ffffff;
-  font-size: 28px;
-  cursor: pointer;
-  animation: bounceArrow 1.6s ease-in-out infinite;
-  transition: 0.3s ease;
-  z-index: 3;
-}
-
-.scroll-arrow:hover {
-  transform: translateX(-50%) scale(1.2);
-}
-
-@keyframes bounceArrow {
-  0%   { transform: translate(-50%, 0); }
-  50%  { transform: translate(-50%, 12px); }
-  100% { transform: translate(-50%, 0); }
-}
-
-/* ================= RESPONSIVE ================= */
-@media (max-width: 768px) {
+  }
+  /* ================= CONTENT ================= */
   .hero-content {
-    left: 6%;
-    max-width: 90%;
+    position: absolute;
+  top: 62%;   /* نزل المحتوى لتحت */
+  left: 8%;
+    transform: translateY(-50%);
+    z-index: 2;
+    color: var(--cream);
+    max-width: 520px;
+  }
+
+  .hero-eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    opacity: 0.8;
+    display: block;
+    margin-bottom: 16px;
   }
 
   .hero-content h1 {
-    font-size: 40px;
+    font-family: serif;
+    font-size: 56px;
+    line-height: 1.1;
+    margin-bottom: 20px;
   }
 
-  .scroll-arrow {
-    bottom: 40px;
-    font-size: 24px;
+  .hero-content h1 em {
+    font-style: italic;
   }
-}
+
+  .hero-content p {
+    font-size: 15px;
+    line-height: 1.7;
+    opacity: 0.85;
+    margin-bottom: 32px;
+  }
+
+  /* ================= BUTTONS ================= */
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+  }
+
+  .btn-primary {
+    background: var(--cream);
+    color: #000;
+    border: none;
+    padding: 14px 28px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--cream);
+    border: 1px solid rgba(255,255,255,0.6);
+    padding: 14px 28px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+
+  .btn-secondary:hover {
+    background: rgba(255,255,255,0.1);
+  }
+
+  /* ================= SCROLL ARROW ================= */
+  .scroll-arrow {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 28px;
+    cursor: pointer;
+    animation: bounceArrow 1.6s ease-in-out infinite;
+    transition: 0.3s ease;
+    z-index: 3;
+  }
+
+  .scroll-arrow:hover {
+    transform: translateX(-50%) scale(1.2);
+  }
+
+  @keyframes bounceArrow {
+    0%   { transform: translate(-50%, 0); }
+    50%  { transform: translate(-50%, 12px); }
+    100% { transform: translate(-50%, 0); }
+  }
+
+  /* ================= RESPONSIVE ================= */
+  @media (max-width: 768px) {
+    .hero-content {
+      left: 6%;
+      max-width: 90%;
+    }
+
+    .hero-content h1 {
+      font-size: 40px;
+    }
+
+    .scroll-arrow {
+      bottom: 40px;
+      font-size: 24px;
+    }
+  }
